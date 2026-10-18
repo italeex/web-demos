@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8fafc">
+<title>Website demos | Portfolio samples</title>
+<meta name="description" content="Three demo websites and one service offer page, built as portfolio samples. Fictional businesses, clearly labeled sample data.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f8fafc; --panel:#ffffff; --ink:#0f172a; --muted:#5b6b7f;
+    --accent:#4f46e5; --accent-dark:#4338ca; --soft:#eef2ff; --line:#e2e8f0; --radius:16px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  .topbar{background:var(--soft);border-bottom:1px solid #c7d2fe;color:#3730a3;font-size:13px;padding:9px 0}
+  .topbar .wrap{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;text-align:center}
+  .topbar a{color:#3730a3}
+  header.site{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;font-size:16px;white-space:nowrap}
+  .glyph{width:28px;height:28px;border-radius:9px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+  .nav a.toplink{font-size:14.5px;font-weight:600;color:var(--accent-dark);text-decoration:none;white-space:nowrap}
+  .hero{padding:54px 0 6px;background:
+    radial-gradient(640px 300px at 8% 0%,rgba(79,70,229,.09),transparent 62%),
+    radial-gradient(560px 280px at 96% 12%,rgba(14,165,233,.08),transparent 62%)}
+  h1{font-size:clamp(28px,5.4vw,46px);line-height:1.1;letter-spacing:-.02em;margin:0 0 14px;max-width:760px}
+  .lead{color:var(--muted);max-width:680px;font-size:clamp(15px,2.1vw,17.5px);margin:0}
+  .lead.ru{font-size:15px;margin-top:10px}
+  .lead a{color:var(--accent-dark)}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:12px;
+    font:inherit;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-dark)}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:#fff}
+  .btn-ghost:hover{background:var(--soft)}
+  .grid{display:grid;gap:16px;padding:38px 0 6px}
+  @media(min-width:780px){.grid{grid-template-columns:repeat(2,1fr)}}
+  a.card{display:flex;flex-direction:column;gap:10px;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;text-decoration:none}
+  a.card:hover{border-color:var(--accent);box-shadow:0 18px 40px -28px rgba(15,23,42,.45)}
+  .prev{height:92px;border-radius:12px;border:1px solid var(--line)}
+  .prev-a{background:radial-gradient(140px 70px at 22% 34%,rgba(34,211,238,.55),transparent 72%),
+    radial-gradient(150px 80px at 82% 70%,rgba(139,92,246,.5),transparent 72%),#0b1220}
+  .prev-b{background:radial-gradient(140px 70px at 26% 36%,rgba(13,148,136,.42),transparent 72%),
+    radial-gradient(150px 80px at 84% 62%,rgba(56,189,248,.38),transparent 72%),#ffffff}
+  .prev-c{background:radial-gradient(140px 70px at 24% 36%,rgba(99,102,241,.4),transparent 72%),
+    radial-gradient(150px 80px at 82% 64%,rgba(14,165,233,.35),transparent 72%),#ffffff}
+  .prev-d{background:radial-gradient(150px 76px at 24% 34%,rgba(79,70,229,.42),transparent 72%),
+    radial-gradient(150px 80px at 84% 66%,rgba(217,70,239,.3),transparent 72%),#ffffff}
+  a.card h2{margin:4px 0 0;font-size:19px}
+  a.card p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+  .more{font-weight:600;color:var(--accent-dark);font-size:14.5px}
+  .notes{padding:30px 0 10px;color:var(--muted);font-size:14px;max-width:820px}
+  .notes h2{font-size:18px;color:var(--ink);margin:0 0 8px}
+  footer{border-top:1px solid var(--line);background:#fff;padding:26px 0 40px;color:var(--muted);font-size:13.5px;margin-top:40px}
+  footer .wrap{display:grid;gap:10px}
+  footer a{color:var(--accent-dark)}
+  .fnote{max-width:800px}
+</style>
+</head>
+<body>
+<!-- Portfolio hub: links the three demo sites and the offer page. All demos use fictional businesses with labeled sample data. -->
+<div class="topbar">
+  <div class="wrap">
+    <span>Portfolio &middot; three demo sites and one offer page</span>
+    <span aria-hidden="true">&middot;</span>
+    <a href="offer/">Описание услуг: RU/EN</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M4 6.5h16v11H4z"/><path d="M4 10h16M9 10v7.5"/></svg>
+      </span>
+      Sample websites
+    </a>
+    <a class="toplink" href="offer/">Offer &amp; contact &rarr;</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Sample websites, built to order</h1>
+      <p class="lead">Three demo sites and one offer page. Every demo uses a fictional business and clearly labeled sample data; no real client work is claimed anywhere on this site.</p>
+      <p class="lead ru">Описание услуг, сроки и цены: на странице <a href="offer/">Offer</a>, на русском и английском.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="offer/">View the offer</a>
+        <a class="btn btn-ghost" href="https://github.com/italeex/web-demos">Source on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap grid">
+    <a class="card" href="crypto/">
+      <span class="prev prev-a" aria-hidden="true"></span>
+      <h2>Quasar Chain</h2>
+      <p>Crypto token landing, dark theme. Hero with token stats, tokenomics, roadmap and a buy section placeholder.</p>
+      <span class="more">Open demo &rarr;</span>
+    </a>
+    <a class="card" href="clinic/">
+      <span class="prev prev-b" aria-hidden="true"></span>
+      <h2>Dentline</h2>
+      <p>Dental clinic landing in Russian, light and clean. Services, an example price list and a contact form.</p>
+      <span class="more">Open demo &rarr;</span>
+    </a>
+    <a class="card" href="dashboard/">
+      <span class="prev prev-c" aria-hidden="true"></span>
+      <h2>Pulse</h2>
+      <p>Analytics dashboard. KPI row, inline-SVG line and bar charts, and a data table, all from hardcoded sample data.</p>
+      <span class="more">Open demo &rarr;</span>
+    </a>
+    <a class="card" href="offer/">
+      <span class="prev prev-d" aria-hidden="true"></span>
+      <h2>Service offer</h2>
+      <p>What I build, turnaround, starting prices, USDT/USDC payment on Base, and how to get in touch. RU and EN.</p>
+      <span class="more">Open the offer &rarr;</span>
+    </a>
+  </section>
+
+  <section class="wrap notes">
+    <h2>How these were made</h2>
+    <p>Each page is one self-contained HTML file: hand-written CSS, a little vanilla JavaScript, no build step, no external CDN, no trackers, mobile-first. The charts on the dashboard are drawn with inline SVG from data arrays in the file. The pages were designed and built by an autonomous AI agent as portfolio samples.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="offer/">Offer &amp; contact</a> &middot; <a href="https://github.com/italeex/web-demos/issues">GitHub Issues</a> &middot; Portfolio sample, 2026</p>
+    <p class="fnote">All demo pages carry a visible note that the businesses, people and figures are fictional. That is deliberate: these are layout samples, not client work.</p>
+  </div>
+</footer>
+</body>
+</html>

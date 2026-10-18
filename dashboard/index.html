@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f1f5f9">
+<title>Pulse Analytics | Demo dashboard sample</title>
+<meta name="description" content="Analytics dashboard demo: KPI row, inline-SVG line and bar charts, data table. Hardcoded sample data, no external libraries.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f1f5f9; --panel:#ffffff; --ink:#0f172a; --muted:#64748b;
+    --indigo:#4f46e5; --sky:#0ea5e9; --green:#16a34a; --red:#dc2626;
+    --line:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15.5px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  svg{display:block}
+  /* demo banner */
+  .demobar{background:#eef2ff;border-bottom:1px solid #c7d2fe;color:#3730a3;font-size:13px;padding:8px 16px;text-align:center}
+  .demobar a{color:#3730a3}
+  /* layout */
+  .shell{display:grid;grid-template-columns:1fr;min-height:100vh}
+  @media(min-width:900px){.shell{grid-template-columns:230px 1fr}}
+  aside.side{display:none;background:#0f172a;color:#cbd5e1;padding:22px 16px;position:sticky;top:0;height:100vh}
+  @media(min-width:900px){aside.side{display:block}}
+  .sbrand{display:flex;align-items:center;gap:10px;font-weight:700;color:#fff;font-size:16px;margin-bottom:22px}
+  .sbrand .dot{width:26px;height:26px;border-radius:9px;background:linear-gradient(135deg,#818cf8,#0ea5e9);flex:none}
+  .snav{display:grid;gap:4px;list-style:none;margin:0;padding:0;font-size:14.5px}
+  .snav li{padding:9px 12px;border-radius:10px;color:#94a3b8;display:flex;gap:10px;align-items:center}
+  .snav li.on{background:rgba(129,140,248,.16);color:#e0e7ff;font-weight:600}
+  .snav li svg{width:17px;height:17px}
+  .sfoot{margin-top:26px;font-size:12px;color:#64748b;border-top:1px solid rgba(148,163,184,.2);padding-top:14px}
+  main{padding:20px 16px 40px;max-width:1240px;width:100%}
+  @media(min-width:900px){main{padding:26px 28px 48px}}
+  /* topbar */
+  .topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+  .topbar h1{margin:0;font-size:clamp(21px,3.4vw,27px);letter-spacing:-.01em}
+  .topbar .sub{color:var(--muted);font-size:13.5px;margin:4px 0 0}
+  .periods{display:flex;gap:6px;background:#e2e8f0;border-radius:12px;padding:4px}
+  .periods button{border:0;background:transparent;font:inherit;font-size:13.5px;font-weight:600;color:#475569;
+    padding:7px 14px;border-radius:9px;cursor:pointer}
+  .periods button[aria-pressed="true"]{background:#fff;color:var(--indigo);box-shadow:0 1px 3px rgba(15,23,42,.12)}
+  /* cards */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:14px}
+  @media(min-width:1000px){.kpis{grid-template-columns:repeat(4,1fr)}}
+  .kpi .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .kpi .v{font-size:clamp(20px,3vw,26px);font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums}
+  .kpi .row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:8px}
+  .delta{font-size:12.5px;font-weight:600}
+  .delta.up{color:var(--green)} .delta.down{color:var(--red)}
+  .spark{width:92px;height:28px;flex:none}
+  .kpi .sub{font-size:12px;color:var(--muted);margin-top:6px}
+  /* charts */
+  .grid2{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px}
+  @media(min-width:1100px){.grid2{grid-template-columns:1.65fr 1fr}}
+  .chead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .chead h2{margin:0;font-size:16.5px}
+  .legend{display:flex;gap:14px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dotc{width:9px;height:9px;border-radius:50%;display:inline-block}
+  .chartbox{position:relative}
+  .chartbox svg{width:100%;height:auto}
+  .tip{position:absolute;top:4px;transform:translateX(-50%);background:#0f172a;color:#e2e8f0;font-size:12.5px;
+    border-radius:10px;padding:8px 11px;display:grid;gap:2px;pointer-events:none;white-space:nowrap;z-index:5}
+  .tip b{color:#fff}
+  .tip span{display:block;font-variant-numeric:tabular-nums}
+  /* table */
+  .tablewrap{overflow-x:auto}
+  table.data{width:100%;border-collapse:collapse;min-width:520px}
+  table.data th,table.data td{text-align:left;padding:11px 10px;font-size:13.8px;border-bottom:1px solid var(--line);white-space:nowrap}
+  table.data th{color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  table.data td.num{text-align:right;font-variant-numeric:tabular-nums}
+  table.data tr:last-child td{border-bottom:0}
+  .up2{color:var(--green);font-weight:600} .down2{color:var(--red);font-weight:600}
+  footer.pf{margin-top:22px;color:var(--muted);font-size:12.5px}
+  footer.pf a{color:var(--indigo)}
+</style>
+</head>
+<body>
+<!-- DEMO SAMPLE: "Pulse Analytics" is a fictional workspace. All figures are hardcoded sample data. Charts are hand-drawn inline SVG, no chart library. -->
+<div class="demobar">Demo sample &middot; hardcoded data, no trackers &middot; <a href="../">All demos</a></div>
+
+<div class="shell">
+  <aside class="side" aria-label="Workspace navigation (decorative)">
+    <div class="sbrand"><span class="dot" aria-hidden="true"></span>Pulse Analytics</div>
+    <ul class="snav">
+      <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>Overview</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg>Traffic</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Revenue</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg>Reports</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M17.7 6.3l-1.4 1.4M7.7 16.3l-1.4 1.4"/></svg>Settings</li>
+    </ul>
+    <p class="sfoot">Sample workspace. Navigation is decorative in this demo.</p>
+  </aside>
+
+  <main>
+    <div class="topbar">
+      <div>
+        <h1>Overview</h1>
+        <p class="sub">Demo workspace, all figures are hardcoded sample data.</p>
+      </div>
+      <div class="periods" role="group" aria-label="Time period">
+        <button type="button" data-period="7d" aria-pressed="false">7d</button>
+        <button type="button" data-period="30d" aria-pressed="true">30d</button>
+        <button type="button" data-period="90d" aria-pressed="false">90d</button>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="card kpi">
+        <div class="k">Total revenue</div>
+        <div class="v" id="kpiRevenue">$0</div>
+        <div class="sub" id="kpiRevenueSub">last 30 days &middot; sample</div>
+      </div>
+      <div class="card kpi">
+        <div class="k">Active users</div>
+        <div class="v">8,921</div>
+        <div class="row">
+          <span class="delta up">&#9650; 3.1% vs prev.</span>
+          <svg class="spark" id="spUsers" viewBox="0 0 100 30" aria-hidden="true"></svg>
+        </div>
+        <div class="sub">sample data</div>
+      </div>
+      <div class="card kpi">
+        <div class="k">Avg. session</div>
+        <div class="v">4m 32s</div>
+        <div class="row">
+          <span class="delta down">&#9660; 0.8% vs prev.</span>
+          <svg class="spark" id="spSession" viewBox="0 0 100 30" aria-hidden="true"></svg>
+        </div>
+        <div class="sub">sample data</div>
+      </div>
+      <div class="card kpi">
+        <div class="k">Conversion</div>
+        <div class="v">3.24%</div>
+        <div class="row">
+          <span class="delta up">&#9650; 0.4 pp vs prev.</span>
+          <svg class="spark" id="spConv" viewBox="0 0 100 30" aria-hidden="true"></svg>
+        </div>
+        <div class="sub">sample data</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card chartbox" id="chartbox">
+        <div class="chead">
+          <h2 id="lineTitle">Revenue &amp; sessions &middot; last 30 days</h2>
+          <div class="legend">
+            <span><i class="dotc" style="background:#6366f1"></i>Revenue, $</span>
+            <span><i class="dotc" style="background:#0ea5e9"></i>Sessions</span>
+          </div>
+        </div>
+        <svg id="lineChart" viewBox="0 0 720 280" role="img" aria-label="Line chart of revenue and sessions, sample data"></svg>
+        <div class="tip" id="tip" hidden></div>
+      </div>
+
+      <div class="card">
+        <div class="chead"><h2>Traffic sources &middot; sessions</h2><span class="legend">sample</span></div>
+        <svg id="barChart" viewBox="0 0 520 264" role="img" aria-label="Bar chart of sessions by traffic source, sample data"></svg>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="chead"><h2>Top channels</h2><span class="legend">last 30 days &middot; sample</span></div>
+      <div class="tablewrap">
+        <table class="data">
+          <thead>
+            <tr><th>Channel</th><th style="text-align:right">Sessions</th><th style="text-align:right">Sign-ups</th><th style="text-align:right">Conversion</th><th>7-day trend</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Organic search</td><td class="num">42,180</td><td class="num">1,861</td><td class="num">4.4%</td><td class="up2">&#9650; +6.2%</td></tr>
+            <tr><td>Paid search</td><td class="num">18,340</td><td class="num">903</td><td class="num">4.9%</td><td class="down2">&#9660; -1.8%</td></tr>
+            <tr><td>Direct</td><td class="num">12,905</td><td class="num">511</td><td class="num">4.0%</td><td class="up2">&#9650; +2.4%</td></tr>
+            <tr><td>Social</td><td class="num">9,412</td><td class="num">288</td><td class="num">3.1%</td><td class="up2">&#9650; +11.5%</td></tr>
+            <tr><td>Referral</td><td class="num">6,730</td><td class="num">301</td><td class="num">4.5%</td><td class="up2">&#9650; +0.9%</td></tr>
+            <tr><td>Email</td><td class="num">3,948</td><td class="num">236</td><td class="num">6.0%</td><td class="down2">&#9660; -3.2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer class="pf">
+      <p><strong>Demo sample.</strong> All numbers on this page are hardcoded sample data. Charts are drawn with inline SVG from data arrays in this file: no external libraries, no trackers. The period switch re-renders the line chart and the revenue KPI from the same sample data.</p>
+      <p><a href="../">All demos</a> &middot; Portfolio sample, 2026</p>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var SERIES = {
+    "7d": { title: "last 7 days", start: "2026-10-12", days: 7,
+      revenue:  [4120, 4380, 4720, 4880, 4610, 4930, 5210],
+      sessions: [2380, 2470, 2560, 2620, 2510, 2680, 2790] },
+    "30d": { title: "last 30 days", start: "2026-09-19", days: 30,
+      revenue:  [3820, 4100, 3720, 4310, 4620, 3980, 4250, 4810, 4520, 4380,
+                 4720, 5100, 4880, 4610, 4930, 5210, 5020, 4780, 5150, 5410,
+                 5280, 4960, 5230, 5560, 5420, 5180, 5490, 5720, 5580, 5840],
+      sessions: [2120, 2280, 2150, 2410, 2520, 2260, 2380, 2610, 2470, 2420,
+                 2560, 2740, 2620, 2510, 2680, 2820, 2750, 2610, 2790, 2960,
+                 2880, 2700, 2860, 3020, 2950, 2810, 2980, 3120, 3050, 3180] },
+    "90d": { title: "last 90 days, weekly", start: null, days: 13,
+      revenue:  [24500, 26100, 25400, 27800, 26900, 28600, 27400, 29200, 28300, 30100, 29400, 31200, 30800],
+      sessions: [15900, 16800, 16200, 17600, 17100, 18200, 17400, 18700, 18100, 19300, 18800, 19900, 19600] }
+  };
+
+  var SOURCES = [
+    { name: "Organic search", v: 42180 },
+    { name: "Paid search",    v: 18340 },
+    { name: "Direct",         v: 12905 },
+    { name: "Social",         v: 9412  },
+    { name: "Referral",       v: 6730  },
+    { name: "Email",          v: 3948  }
+  ];
+
+  var NS = "http://www.w3.org/2000/svg";
+  function el(name, attrs){
+    var n = document.createElementNS(NS, name);
+    if (attrs) { for (var k in attrs) { if (Object.prototype.hasOwnProperty.call(attrs, k)) { n.setAttribute(k, attrs[k]); } } }
+    return n;
+  }
+  function clear(node){ while (node.firstChild) { node.removeChild(node.firstChild); } }
+  function fmtNum(v){ return Math.round(v).toLocaleString("en-US"); }
+  function fmtK(v){
+    if (v >= 1000) { var k = v / 1000; return (Math.round(k * 10) / 10).toString().replace(/\.0$/, "") + "k"; }
+    return String(Math.round(v));
+  }
+  function niceMax(v){
+    var raw = v * 1.1;
+    var mag = Math.pow(10, Math.floor(Math.log(raw) / Math.LN10));
+    var n = raw / mag;
+    var m = n <= 1 ? 1 : n <= 1.5 ? 1.5 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 3 ? 3 : n <= 4 ? 4 : n <= 5 ? 5 : n <= 7.5 ? 7.5 : 10;
+    return m * mag;
+  }
+  function pad2(n){ return (n < 10 ? "0" : "") + n; }
+  function labelsFor(key){
+    if (key === "90d") {
+      var w = [];
+      for (var i = 1; i <= 13; i++) { w.push("W" + i); }
+      return w;
+    }
+    var s = SERIES[key];
+    var start = new Date(s.start + "T00:00:00Z");
+    var out = [];
+    for (var j = 0; j < s.days; j++) {
+      var d = new Date(start.getTime() + j * 86400000);
+      out.push(pad2(d.getUTCDate()) + "." + pad2(d.getUTCMonth() + 1));
+    }
+    return out;
+  }
+
+  var LINE_W = 720, LINE_H = 280;
+  var PAD = { l: 52, r: 16, t: 16, b: 34 };
+  function xAt(i, n){ return PAD.l + (LINE_W - PAD.l - PAD.r) * (n === 1 ? 0 : i / (n - 1)); }
+  function yAt(v, maxV){ var ih = LINE_H - PAD.t - PAD.b; return PAD.t + ih - ih * (v / maxV); }
+
+  var state = { period: "30d" };
+  var hover = null;
+
+  function drawLine(){
+    var svg = document.getElementById("lineChart");
+    var s = SERIES[state.period];
+    var labels = labelsFor(state.period);
+    var n = labels.length;
+    var maxV = niceMax(Math.max.apply(null, s.revenue.concat(s.sessions)));
+    clear(svg);
+
+    var defs = el("defs");
+    var lg = el("linearGradient", { id: "areaFill", x1: "0", y1: "0", x2: "0", y2: "1" });
+    lg.append(el("stop", { offset: "0%", "stop-color": "#6366f1", "stop-opacity": "0.30" }));
+    lg.append(el("stop", { offset: "100%", "stop-color": "#6366f1", "stop-opacity": "0" }));
+    defs.append(lg);
+    svg.append(defs);
+
+    for (var g = 0; g <= 4; g++) {
+      var y = PAD.t + (LINE_H - PAD.t - PAD.b) * (1 - g / 4);
+      svg.append(el("line", { x1: PAD.l, x2: LINE_W - PAD.r, y1: y, y2: y, stroke: "#e2e8f0", "stroke-width": "1" }));
+      var t = el("text", { x: PAD.l - 8, y: y + 4, "text-anchor": "end", fill: "#94a3b8", "font-size": "11" });
+      t.textContent = fmtK(maxV * g / 4);
+      svg.append(t);
+    }
+
+    var step = Math.ceil(n / 8);
+    for (var i = 0; i < n; i++) {
+      if (i % step === 0 || i === n - 1) {
+        var xt = el("text", { x: xAt(i, n), y: LINE_H - 10, "text-anchor": "middle", fill: "#94a3b8", "font-size": "10.5" });
+        xt.textContent = labels[i];
+        svg.append(xt);
+      }
+    }
+
+    var revPts = s.revenue.map(function(v, i){ return xAt(i, n).toFixed(1) + "," + yAt(v, maxV).toFixed(1); });
+    var areaD = "M" + PAD.l + "," + (LINE_H - PAD.b) + " L" + revPts.join(" L") + " L" + (LINE_W - PAD.r) + "," + (LINE_H - PAD.b) + " Z";
+    svg.append(el("path", { d: areaD, fill: "url(#areaFill)" }));
+    svg.append(el("path", { d: "M" + revPts.join(" L"), fill: "none", stroke: "#6366f1", "stroke-width": "2.5", "stroke-linecap": "round", "stroke-linejoin": "round" }));
+
+    var sesPts = s.sessions.map(function(v, i){ return xAt(i, n).toFixed(1) + "," + yAt(v, maxV).toFixed(1); });
+    svg.append(el("path", { d: "M" + sesPts.join(" L"), fill: "none", stroke: "#0ea5e9", "stroke-width": "2.5", "stroke-linecap": "round", "stroke-linejoin": "round" }));
+
+    var line = el("line", { x1: 0, x2: 0, y1: PAD.t, y2: LINE_H - PAD.b, stroke: "#94a3b8", "stroke-width": "1", "stroke-dasharray": "4 4", opacity: "0" });
+    var d1 = el("circle", { r: "4.5", fill: "#6366f1", stroke: "#fff", "stroke-width": "2", opacity: "0" });
+    var d2 = el("circle", { r: "4.5", fill: "#0ea5e9", stroke: "#fff", "stroke-width": "2", opacity: "0" });
+    svg.append(line); svg.append(d1); svg.append(d2);
+    hover = { line: line, d1: d1, d2: d2 };
+  }
+
+  function drawBars(){
+    var svg = document.getElementById("barChart");
+    var W = 520, H = 264, L = 108, R = 70, T = 12, B = 8;
+    var rowH = (H - T - B) / SOURCES.length;
+    var barH = 16;
+    var maxV = Math.max.apply(null, SOURCES.map(function(s){ return s.v; }));
+    clear(svg);
+
+    var defs = el("defs");
+    var lg = el("linearGradient", { id: "barFill", x1: "0", y1: "0", x2: "1", y2: "0" });
+    lg.append(el("stop", { offset: "0%", "stop-color": "#818cf8" }));
+    lg.append(el("stop", { offset: "100%", "stop-color": "#6366f1" }));
+    defs.append(lg);
+    svg.append(defs);
+
+    var trackW = W - L - R;
+    SOURCES.forEach(function(s, i){
+      var y = T + i * rowH + (rowH - barH) / 2;
+      var nm = el("text", { x: L - 10, y: y + barH - 4, "text-anchor": "end", fill: "#475569", "font-size": "12.5" });
+      nm.textContent = s.name;
+      svg.append(nm);
+      svg.append(el("rect", { x: L, y: y, width: trackW, height: barH, rx: 8, fill: "#eef2f7" }));
+      var w = Math.max(8, (trackW - 6) * s.v / maxV);
+      svg.append(el("rect", { x: L, y: y, width: w, height: barH, rx: 8, fill: "url(#barFill)" }));
+      var vt = el("text", { x: L + w + 8, y: y + barH - 4, fill: "#334155", "font-size": "12" });
+      vt.textContent = fmtNum(s.v);
+      svg.append(vt);
+    });
+  }
+
+  function spark(id, vals, color){
+    var svg = document.getElementById(id);
+    if (!svg) { return; }
+    var W = 100, H = 30;
+    var mn = Math.min.apply(null, vals);
+    var mx = Math.max.apply(null, vals);
+    var rng = (mx - mn) || 1;
+    var d = vals.map(function(v, i){
+      var x = 2 + (W - 4) * i / (vals.length - 1);
+      var y = H - 3 - (H - 6) * (v - mn) / rng;
+      return (i ? "L" : "M") + x.toFixed(1) + "," + y.toFixed(1);
+    }).join(" ");
+    clear(svg);
+    svg.append(el("path", { d: d, fill: "none", stroke: color, "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }));
+  }
+
+  function bindHover(){
+    var svg = document.getElementById("lineChart");
+    var tip = document.getElementById("tip");
+    var box = document.getElementById("chartbox");
+    svg.addEventListener("pointermove", function(e){
+      if (!hover) { return; }
+      var s = SERIES[state.period];
+      var labels = labelsFor(state.period);
+      var n = labels.length;
+      var maxV = niceMax(Math.max.apply(null, s.revenue.concat(s.sessions)));
+      var rect = svg.getBoundingClientRect();
+      if (!rect.width) { return; }
+      var vx = (e.clientX - rect.left) * (LINE_W / rect.width);
+      var i = Math.round((vx - PAD.l) / (LINE_W - PAD.l - PAD.r) * (n - 1));
+      i = Math.max(0, Math.min(n - 1, i));
+      var x = xAt(i, n);
+      hover.line.setAttribute("x1", x);
+      hover.line.setAttribute("x2", x);
+      hover.line.setAttribute("opacity", "1");
+      hover.d1.setAttribute("cx", x);
+      hover.d1.setAttribute("cy", yAt(s.revenue[i], maxV));
+      hover.d1.setAttribute("opacity", "1");
+      hover.d2.setAttribute("cx", x);
+      hover.d2.setAttribute("cy", yAt(s.sessions[i], maxV));
+      hover.d2.setAttribute("opacity", "1");
+      tip.hidden = false;
+      tip.textContent = "";
+      var tl = document.createElement("b");
+      tl.textContent = labels[i];
+      var t1 = document.createElement("span");
+      t1.textContent = "Revenue $" + fmtNum(s.revenue[i]);
+      var t2 = document.createElement("span");
+      t2.textContent = "Sessions " + fmtNum(s.sessions[i]);
+      tip.appendChild(tl);
+      tip.appendChild(t1);
+      tip.appendChild(t2);
+      var boxRect = box.getBoundingClientRect();
+      var px = rect.left - boxRect.left + (x / LINE_W) * rect.width;
+      px = Math.max(80, Math.min(boxRect.width - 80, px));
+      tip.style.left = px + "px";
+    });
+    svg.addEventListener("pointerleave", function(){
+      if (!hover) { return; }
+      hover.line.setAttribute("opacity", "0");
+      hover.d1.setAttribute("opacity", "0");
+      hover.d2.setAttribute("opacity", "0");
+      tip.hidden = true;
+    });
+  }
+
+  function setPeriod(p){
+    state.period = p;
+    var s = SERIES[p];
+    document.querySelectorAll("[data-period]").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-period") === p ? "true" : "false");
+    });
+    var total = s.revenue.reduce(function(a, b){ return a + b; }, 0);
+    document.getElementById("kpiRevenue").textContent = "$" + fmtNum(total);
+    document.getElementById("kpiRevenueSub").textContent = s.title + " \u00b7 sample";
+    document.getElementById("lineTitle").textContent = "Revenue & sessions \u00b7 " + s.title;
+    drawLine();
+  }
+
+  document.querySelectorAll("[data-period]").forEach(function(b){
+    b.addEventListener("click", function(){ setPeriod(b.getAttribute("data-period")); });
+  });
+
+  spark("spUsers",  [8200, 8350, 8280, 8460, 8520, 8680, 8610, 8790, 8850, 8921], "#6366f1");
+  spark("spSession", [285, 279, 282, 274, 277, 271, 275, 270, 273, 272], "#0ea5e9");
+  spark("spConv",   [290, 300, 295, 305, 302, 310, 308, 315, 320, 324], "#10b981");
+  drawBars();
+  setPeriod("30d");
+  bindHover();
+})();
+</script>
+</body>
+</html>

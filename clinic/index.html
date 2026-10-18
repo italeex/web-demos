@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8fafc">
+<title>Дентлайн | Демо-образец лендинга стоматологии</title>
+<meta name="description" content="Демонстрационный образец лендинга для стоматологии. Клиника вымышлена, цены и контакты условны.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d9488'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f7fafc; --panel:#ffffff; --ink:#0f172a; --muted:#5b6b7f;
+    --accent:#0d9488; --accent-dark:#0f766e; --soft:#f0fdfa; --line:#e2e8f0;
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  svg{display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  /* demo banner */
+  .demobar{background:#fffbeb;border-bottom:1px solid #fde68a;color:#78500e;font-size:13px;padding:9px 0}
+  .demobar .wrap{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;text-align:center}
+  .demobar a{color:#78500e}
+  /* header */
+  header.site{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;font-size:17px;white-space:nowrap}
+  .glyph{width:30px;height:30px;border-radius:10px;background:var(--soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+  nav.links{display:none;gap:24px;font-size:15px;color:var(--muted)}
+  nav.links a{text-decoration:none}
+  nav.links a:hover{color:var(--ink)}
+  @media(min-width:820px){nav.links{display:flex}}
+  .hphone{display:none;font-weight:600;text-decoration:none;white-space:nowrap}
+  @media(min-width:640px){.hphone{display:block}}
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:12px;
+    font:inherit;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-dark)}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:#fff}
+  .btn-ghost:hover{background:var(--soft)}
+  /* hero */
+  .hero{padding:56px 0 46px;background:
+    radial-gradient(700px 320px at 12% 0%,rgba(13,148,136,.10),transparent 60%),
+    radial-gradient(600px 300px at 95% 20%,rgba(56,189,248,.10),transparent 60%)}
+  .hero .wrap{display:grid;gap:36px;align-items:center}
+  @media(min-width:900px){.hero .wrap{grid-template-columns:1.05fr .95fr;gap:48px}}
+  .pill{display:inline-block;font-size:13px;color:var(--accent-dark);background:var(--soft);
+    border:1px solid #99f6e4;padding:4px 12px;border-radius:99px}
+  h1{font-size:clamp(28px,5.6vw,46px);line-height:1.12;letter-spacing:-.02em;margin:16px 0 14px}
+  .accent{color:var(--accent)}
+  .lead{color:var(--muted);max-width:560px;font-size:clamp(15px,2.1vw,17.5px);margin:0}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .quick{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .qchip{font-size:13.5px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 14px}
+  .qchip b{color:var(--ink)}
+  /* hero graphic */
+  .heroart{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 18px 44px -28px rgba(15,23,42,.28)}
+  .heroart .art{position:relative;background:linear-gradient(160deg,var(--soft),#eff6ff);border-radius:16px;padding:26px;display:grid;place-items:center;gap:14px;min-height:230px}
+  .heroart .art svg{width:120px;height:120px;color:var(--accent)}
+  .artchips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  .artchip{font-size:13px;font-weight:600;color:var(--accent-dark);background:#fff;border:1px solid #99f6e4;border-radius:99px;padding:5px 12px}
+  .heroart .hinfo{margin-top:16px;display:grid;gap:10px;font-size:14.5px;color:var(--muted)}
+  .hinfo .row{display:flex;gap:10px;align-items:flex-start}
+  .hinfo .row svg{width:18px;height:18px;color:var(--accent);flex:none;margin-top:2px}
+  .hinfo b{color:var(--ink)}
+  /* sections */
+  .sec{padding:56px 0}
+  .sec.tinted{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 8px}
+  h2{font-size:clamp(22px,3.8vw,32px);letter-spacing:-.015em;margin:0 0 8px}
+  .sub{color:var(--muted);max-width:640px;margin:0 0 30px}
+  /* services */
+  .cards{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:680px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.cards{grid-template-columns:repeat(3,1fr)}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:8px}
+  .card .ic{width:40px;height:40px;border-radius:12px;background:var(--soft);color:var(--accent);display:flex;align-items:center;justify-content:center}
+  .card .ic svg{width:21px;height:21px}
+  .card h3{margin:2px 0 0;font-size:17px}
+  .card p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+  .card .price{font-weight:700;color:var(--accent-dark);font-size:15px}
+  /* price table */
+  table.prices{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  table.prices th,table.prices td{text-align:left;padding:13px 16px;font-size:14.5px;border-bottom:1px solid var(--line)}
+  table.prices th{background:#f8fafc;color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  table.prices tr:last-child td{border-bottom:0}
+  table.prices td:last-child{text-align:right;font-weight:600;white-space:nowrap}
+  .tnote{font-size:13px;color:var(--muted);margin-top:12px}
+  /* steps */
+  .steps{display:grid;gap:14px;counter-reset:st}
+  @media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .step:before{counter-increment:st;content:counter(st);display:flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;margin-bottom:10px}
+  .step h3{margin:0 0 6px;font-size:16.5px}
+  .step p{margin:0;color:var(--muted);font-size:14.5px}
+  /* contact */
+  .contact{display:grid;gap:24px}
+  @media(min-width:900px){.contact{grid-template-columns:1fr 1.1fr}}
+  .cinfo{display:grid;gap:14px;align-content:start}
+  .crow{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .crow svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:3px}
+  .crow div b{display:block}
+  .crow div span{color:var(--muted);font-size:14px}
+  form.leadform{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:grid;gap:14px}
+  form.leadform label{font-size:14px;font-weight:600;display:grid;gap:6px}
+  form.leadform input,form.leadform textarea{
+    font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#f9fbfd;color:var(--ink);width:100%}
+  form.leadform input:focus,form.leadform textarea:focus{outline:2px solid #99f6e4;border-color:var(--accent)}
+  .formnote{font-size:13px;color:var(--muted);margin:0}
+  .formmsg{display:none;font-size:14px;background:var(--soft);border:1px solid #99f6e4;color:var(--accent-dark);border-radius:10px;padding:12px 14px;margin:0}
+  .formmsg.on{display:block}
+  /* footer */
+  footer{border-top:1px solid var(--line);background:#fff;padding:28px 0 40px;color:var(--muted);font-size:13.5px}
+  footer .wrap{display:grid;gap:10px}
+  footer a{color:var(--accent-dark)}
+  .fnote{max-width:780px}
+</style>
+</head>
+<body>
+<!-- ДЕМО-ОБРАЗЕЦ: клиника «Дентлайн» вымышлена. Название, адрес, телефон и цены приведены для показа вёрстки. -->
+<div class="demobar">
+  <div class="wrap">
+    <strong>Демо-образец</strong>
+    <span>клиника вымышлена, цены и контакты условны</span>
+    <span aria-hidden="true">&middot;</span>
+    <a href="../">Все демо</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="glyph" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M12 4.5c-2.7 0-4.5 1.8-4.5 4.4 0 2.1.7 3.2 1 5 .3 1.5.5 4.6 1.8 4.6 1.1 0 .9-3 2-3s.9 3 2 3c1.3 0 1.5-3.1 1.8-4.6.3-1.8 1-2.9 1-5 0-2.6-1.8-4.4-4.5-4.4z"/></svg>
+      </span>
+      Дентлайн
+    </a>
+    <nav class="links" aria-label="Разделы страницы">
+      <a href="#services">Услуги</a>
+      <a href="#prices">Цены</a>
+      <a href="#steps">Как проходит приём</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <span style="display:flex;gap:12px;align-items:center">
+      <a class="hphone" href="#contact">+7 (495) 000-00-00</a>
+      <a class="btn btn-primary" style="padding:10px 16px;font-size:14px" href="#contact">Записаться</a>
+    </span>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="pill">Демонстрационный образец вёрстки</span>
+        <h1>Стоматология для всей семьи: <span class="accent">спокойно и без боли</span></h1>
+        <p class="lead">Понятный план лечения и фиксированная цена до начала работы. Врач объясняет каждый шаг. Это демо-страница: клиника, цены и контакты вымышлены.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#contact">Записаться на приём</a>
+          <a class="btn btn-ghost" href="#prices">Смотреть цены</a>
+        </div>
+        <div class="quick">
+          <span class="qchip"><b>Пн-Сб</b> 9:00-20:00</span>
+          <span class="qchip"><b>г. Москва</b>, ул. Лесная, 12</span>
+          <span class="qchip">Приём <b>по записи</b>, без ожидания в очереди</span>
+        </div>
+      </div>
+      <div class="heroart">
+        <div class="art">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5c-3.1 0-5.2 2.1-5.2 5.1 0 2.4.8 3.7 1.2 5.8.3 1.7.5 5.3 2 5.3 1.3 0 1-3.4 2-3.4s.7 3.4 2 3.4c1.5 0 1.7-3.6 2-5.3.4-2.1 1.2-3.4 1.2-5.8 0-3-2.1-5.1-5.2-5.1z"/></svg>
+          <div class="artchips">
+            <span class="artchip">Стерильность по протоколу</span>
+            <span class="artchip">Лечение без боли</span>
+            <span class="artchip">Понятные цены</span>
+          </div>
+        </div>
+        <div class="hinfo">
+          <div class="row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+            <span>На приём отводится час: врач успевает ответить на все вопросы, а не торопит с выбором.</span>
+          </div>
+          <div class="row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <span>План лечения и цена фиксируются письменно до начала работы.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tinted" id="services">
+    <div class="wrap">
+      <p class="kicker">Услуги</p>
+      <h2>Что лечим и делаем</h2>
+      <p class="sub">Полный пример прайса для демонстрации структуры страницы. Цены условные.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-4 4v-4H4z"/></svg></span>
+          <h3>Консультация</h3>
+          <p>Осмотр, снимок при необходимости и план лечения с ценой по каждому этапу.</p>
+          <span class="price">500 ₽</span>
+        </div>
+        <div class="card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l1.6 4.4L18 10l-4.4 1.6L12 16l-1.6-4.4L6 10l4.4-1.6z"/><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></svg></span>
+          <h3>Профессиональная гигиена</h3>
+          <p>Ультразвук, Air Flow и полировка. Профилактика, после которой реже болит и меньше пломб.</p>
+          <span class="price">от 3 500 ₽</span>
+        </div>
+        <div class="card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5c-3.1 0-5.2 2.1-5.2 5.1 0 2.4.8 3.7 1.2 5.8.3 1.7.5 5.3 2 5.3 1.3 0 1-3.4 2-3.4s.7 3.4 2 3.4c1.5 0 1.7-3.6 2-5.3.4-2.1 1.2-3.4 1.2-5.8 0-3-2.1-5.1-5.2-5.1z"/><path d="M9.5 10.5h5"/></svg></span>
+          <h3>Лечение кариеса</h3>
+          <p>Лечение под местной анестезией, пломба подбирается по цвету эмали.</p>
+          <span class="price">от 3 900 ₽</span>
+        </div>
+        <div class="card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v9"/><path d="M8.5 7h7M8.5 10h7"/><path d="M12 12.5v7"/><path d="M9.5 17h5"/></svg></span>
+          <h3>Имплантация</h3>
+          <p>Имплант, абатмент и коронка одним планом лечения. Сроки называем сразу.</p>
+          <span class="price">от 45 000 ₽</span>
+        </div>
+        <div class="card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="6" rx="1.5"/><path d="M4 12H2.5M22 12h-1.5M8 9V7.5M12 9V7.5M16 9V7.5"/></svg></span>
+          <h3>Ортодонтия</h3>
+          <p>Брекеты и элайнеры для взрослых и подростков. План с расчётом срока ношения.</p>
+          <span class="price">от 90 000 ₽</span>
+        </div>
+        <div class="card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 14.5s1 1.7 3 1.7 3-1.7 3-1.7"/><path d="M9.3 9.8h.01M14.7 9.8h.01"/></svg></span>
+          <h3>Детская стоматология</h3>
+          <p>Приём в игровой форме: показываем инструменты, объясняем и не пугаем.</p>
+          <span class="price">от 1 500 ₽</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="prices">
+    <div class="wrap">
+      <p class="kicker">Цены</p>
+      <h2>Пример прайса</h2>
+      <p class="sub">Так цены выглядят на странице. Итоговую стоимость врач называет после осмотра до начала лечения.</p>
+      <table class="prices">
+        <thead>
+          <tr><th>Услуга</th><th>Цена</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Приём и консультация, план лечения</td><td>500 ₽</td></tr>
+          <tr><td>Профессиональная гигиена полости рта</td><td>от 3 500 ₽</td></tr>
+          <tr><td>Лечение кариеса с пломбой</td><td>от 3 900 ₽</td></tr>
+          <tr><td>Имплантация: имплант, абатмент, коронка</td><td>от 45 000 ₽</td></tr>
+          <tr><td>Отбеливание зубов</td><td>от 12 000 ₽</td></tr>
+          <tr><td>Ортодонтия: брекеты или элайнеры</td><td>от 90 000 ₽</td></tr>
+          <tr><td>Детский приём</td><td>от 1 500 ₽</td></tr>
+        </tbody>
+      </table>
+      <p class="tnote">Прайс демонстрационный, для реальной клиники не является публичной офертой.</p>
+    </div>
+  </section>
+
+  <section class="sec tinted" id="steps">
+    <div class="wrap">
+      <p class="kicker">Этапы</p>
+      <h2>Как проходит приём</h2>
+      <p class="sub">Три шага, которые занимают меньше времени, чем кажется на приёме у стоматолога в первый раз.</p>
+      <div class="steps">
+        <div class="step">
+          <h3>Запись</h3>
+          <p>Выберите удобное время по телефону или через форму на этой странице.</p>
+        </div>
+        <div class="step">
+          <h3>Осмотр и план</h3>
+          <p>Врач осматривает, при необходимости делает снимок и показывает план с ценами по этапам.</p>
+        </div>
+        <div class="step">
+          <h3>Лечение</h3>
+          <p>Лечим по согласованному плану. Если что-то меняется, сначала обсуждаем, потом делаем.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <p class="kicker">Контакты</p>
+      <h2>Записаться на приём</h2>
+      <p class="sub">Контакты ниже условные, страница демонстрационная. Форма ничего не отправляет.</p>
+      <div class="contact">
+        <div class="cinfo">
+          <div class="crow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.3-6.5-10a6.5 6.5 0 0 1 13 0c0 4.7-6.5 10-6.5 10z"/><circle cx="12" cy="11" r="2.3"/></svg>
+            <div><b>Адрес</b><span>г. Москва, ул. Лесная, 12 (демо-адрес)</span></div>
+          </div>
+          <div class="crow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15.5 15.5 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            <div><b>Телефон</b><span>+7 (495) 000-00-00 (демо-номер)</span></div>
+          </div>
+          <div class="crow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+            <div><b>Режим работы</b><span>Пн-Сб 9:00-20:00, Вс выходной</span></div>
+          </div>
+        </div>
+        <form class="leadform" id="demoForm">
+          <label>Имя
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>Телефон
+            <input type="tel" name="phone" autocomplete="tel" required>
+          </label>
+          <label>Комментарий
+            <textarea name="comment" rows="3" placeholder="Например: болит зуб справа, удобно после 18:00"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Отправить заявку</button>
+          <p class="formmsg" id="formMsg">Это демо-образец: форма не подключена и ничего не отправляет. На реальном сайте заявка ушла бы администратору клиники.</p>
+          <p class="formnote">Отправляя форму, вы соглашаетесь на обработку персональных данных. На демо-странице этот текст стоит для полноты макета.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="fnote"><strong>Демо-образец.</strong> Клиника «Дентлайн» вымышлена: название, адрес, телефон и цены приведены только для показа вёрстки. Страница не является рекламой или офертой. Сайт собран из одного HTML-файла без внешних библиотек и трекеров.</p>
+    <p><a href="../">Все демо</a> &middot; Портфолио-пример, 2026</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var form = document.getElementById("demoForm");
+  var msg = document.getElementById("formMsg");
+  if (form && msg) {
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      msg.classList.add("on");
+    });
+  }
+})();
+</script>
+</body>
+</html>
