@@ -993,12 +993,12 @@
       title.textContent = 'Выберите услугу';
       sub.textContent = 'Шаг 1 из 4';
       btn.disabled = true;
-      btn.textContent = 'Выберите услугу';
+      btn.textContent = 'Далее';
     } else if (!state.time) {
       title.textContent = svc.name;
       sub.textContent = 'Выберите время на шаге 3';
       btn.disabled = true;
-      btn.textContent = 'Выберите время';
+      btn.textContent = 'Далее';
     } else {
       title.textContent = svc.name;
       sub.textContent = dateShort(state.dateObj) + ', ' + state.time + ' · ' + money(svc.price) + ' (пример)';
