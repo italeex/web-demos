@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Client preview pages: shared with one company by direct link only.
+# They show a real company's public directory data, so they must not be
+# indexed as that company's own website.
+Disallow: /toylex-ufa/
+Disallow: /melari-samara/
+Disallow: /ulybka-kazan/
+Disallow: /interval-barnaul/
+
 Sitemap: https://italeex.github.io/web-demos/sitemap.xml
