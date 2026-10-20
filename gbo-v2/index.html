@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4f2ed">
+<title>Центр ГБО: установка газового оборудования в Казани (демо-макет)</title>
+<meta name="description" content="Демо-макет страницы для «Центр ГБО», Казань: услуги и цены с сайта компании, контакты, запись на установку.">
+<meta name="robots" content="noindex">
+<style>
+:root {
+  --paper: #f4f2ed;
+  --paper-deep: #ece8df;
+  --surface: #fbfaf7;
+  --ink: #1e231f;
+  --ink-soft: #3c433d;
+  --muted: #63675e;
+  --line: #d9d5ca;
+  --line-strong: #cbc6b6;
+  --line-soft: #e5e1d8;
+  --pine: #2f5344;
+  --pine-deep: #243f35;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Noto Serif", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --wrap: 1040px;
+  --pad: 20px;
+  --step-label: 11.5px;
+  --step-hint: 12.5px;
+  --step-caption: 13.5px;
+  --step-small: 15.5px;
+  --step-body: 17px;
+  --step-h3: 18px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--step-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; }
+a { color: inherit; }
+[hidden] { display: none !important; }
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--pad); }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+  margin: 0;
+}
+h1 { font-size: clamp(30px, 8.4vw, 56px); line-height: 1.08; }
+h2 { font-size: clamp(23px, 4.8vw, 33px); line-height: 1.16; }
+h3 { font-size: var(--step-h3); line-height: 1.3; letter-spacing: 0; }
+p { margin: 0; text-wrap: pretty; }
+blockquote, dd, .caption, .facts dd, .lead { text-wrap: balance; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--pine);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.kicker {
+  font-size: var(--step-label);
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+.caption {
+  font-size: var(--step-caption);
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+/* Верхняя полоса: макет, а не живой сайт компании */
+.demo-bar {
+  background: var(--paper-deep);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: var(--step-label);
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+.demo-bar .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.demo-bar b {
+  flex: 0 0 auto;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 10.5px;
+  padding: 3px 8px;
+  background: var(--pine);
+  color: #f7f6f1;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.demo-bar span { flex: 1 1 auto; color: var(--muted); min-width: 0; }
+
+/* Шапка */
+.mast {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(244, 242, 237, 0.94);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+  backdrop-filter: saturate(120%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.mast .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 62px;
+}
+.brand { display: flex; align-items: baseline; gap: 9px; text-decoration: none; min-width: 0; min-height: 44px; }
+.brand-mark {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.brand-sub {
+  display: none;
+  font-size: var(--step-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.mast-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  text-decoration: none;
+  font-size: var(--step-small);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.mast-call svg { flex: 0 0 auto; color: var(--pine); }
+.mast-call span { border-bottom: 1px solid transparent; }
+.mast-call:hover span { border-bottom-color: var(--pine); }
+@media (min-width: 860px) {
+  .brand-sub { display: inline; }
+  .brand-mark { font-size: 22px; }
+}
+
+/* Первый экран */
+.hero { padding: 34px 0 6px; }
+.hero h1 { margin-bottom: 16px; max-width: 20ch; }
+.hero .lead {
+  font-size: var(--step-body);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+.hero-actions { display: grid; gap: 10px; margin: 24px 0 30px; }
+.hero-actions .tel-quiet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  font-size: var(--step-small);
+  text-decoration: none;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.hero-actions .tel-quiet span { border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.hero-actions .tel-quiet:hover span { border-bottom-color: var(--pine); }
+@media (min-width: 620px) {
+  .hero-actions { display: flex; align-items: center; gap: 18px; }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border: 1px solid var(--pine);
+  border-radius: 6px;
+  background: var(--pine);
+  color: #f7f6f1;
+  font-family: inherit;
+  font-size: var(--step-small);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--pine-deep); border-color: var(--pine-deep); }
+.btn:active { background: #1d332b; border-color: #1d332b; }
+
+/* Три опорных факта под первым экраном */
+.facts {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.facts > div {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.facts dt {
+  font-size: var(--step-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.facts dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: var(--step-h3);
+  line-height: 1.35;
+}
+@media (min-width: 720px) {
+  .facts { grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line-soft); }
+  .facts > div { padding: 16px 22px 16px 0; border-bottom: 0; border-right: 1px solid var(--line-soft); }
+  .facts > div:last-child { border-right: 0; padding-right: 0; }
+}
+
+/* Секции */
+section { padding: 40px 0; }
+.sect-head { margin-bottom: 22px; }
+.sect-head h2 { margin-bottom: 10px; }
+.services { border-bottom: 1px solid var(--line); }
+@media (min-width: 860px) {
+  section { padding: 56px 0; }
+  .sect-head { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; align-items: end; }
+  .sect-head .caption { justify-self: end; text-align: right; }
+}
+
+/* Услуги: тихий прайс-лист с точечными выносками, а не сетка цветных карточек */
+.svc-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.svc { padding: 16px 0 18px; border-bottom: 1px solid var(--line-soft); }
+.svc-top {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.svc-top h3 { flex: 0 1 auto; min-width: 0; }
+.svc-lead {
+  flex: 1 1 20px;
+  min-width: 14px;
+  height: 0;
+  border-bottom: 1px dotted var(--line-strong);
+}
+.svc-price {
+  flex: 0 0 auto;
+  font-size: var(--step-small);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.svc-price .from {
+  color: var(--muted);
+  font-size: var(--step-caption);
+  letter-spacing: 0.02em;
+  margin-right: 2px;
+}
+.svc p { color: var(--muted); font-size: var(--step-small); line-height: 1.5; max-width: 68ch; }
+
+/* Что вы получаете */
+.why-grid { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.why { padding-top: 14px; border-top: 1px solid var(--line); }
+.why .num {
+  font-family: var(--mono);
+  font-size: var(--step-label);
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.why h3 { margin: 6px 0 5px; }
+.why p { color: var(--muted); font-size: var(--step-small); text-wrap: balance; }
+@media (min-width: 640px) {
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 20px 34px; }
+}
+
+/* Отзывы */
+.quotes { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; }
+.quote { padding-top: 18px; border-top: 1px solid var(--line); }
+.quote blockquote {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-size: var(--step-h3);
+  line-height: 1.45;
+}
+.quote figcaption {
+  font-size: var(--step-hint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+@media (min-width: 780px) {
+  .quotes { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+}
+
+/* Контакты и запись */
+.contacts { background: var(--paper-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.contact-grid { display: grid; gap: 32px; }
+.info { margin: 0; border-top: 1px solid var(--line); }
+.info > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.info dt {
+  font-size: var(--step-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.info dd {
+  margin: 0;
+  font-size: var(--step-body);
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+}
+.info a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.info a:hover { border-bottom-color: var(--pine); }
+.map {
+  margin-top: 18px;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 20px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.map svg { color: var(--pine); opacity: 0.8; }
+.map b { font-weight: 600; font-size: var(--step-small); }
+.map span { color: var(--muted); font-size: var(--step-caption); line-height: 1.45; max-width: 34ch; text-wrap: balance; }
+
+.card-quiet {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 20px;
+}
+.card-quiet h3 { margin-bottom: 4px; }
+.card-quiet .caption { margin-bottom: 16px; }
+.form { display: grid; gap: 14px; }
+.field { display: grid; gap: 6px; }
+label { font-size: var(--step-hint); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+input, textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--step-body);
+  resize: none;
+}
+input::placeholder, textarea::placeholder { color: #83867d; }
+input:focus, textarea:focus { outline: 2px solid rgba(47, 83, 68, 0.35); border-color: var(--pine); }
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: #8c3a2a; background: #fbf5f1; }
+.form .btn { width: 100%; font-weight: 500; }
+.hint { font-size: var(--step-hint); line-height: 1.5; color: var(--muted); }
+.err { color: #8c3a2a; font-size: var(--step-hint); line-height: 1.5; }
+.ok { border-top: 1px solid var(--line); margin-top: 4px; padding-top: 16px; }
+.ok b { display: block; font-family: var(--serif); font-size: 19px; font-weight: 400; margin-bottom: 6px; }
+.ok p { font-size: var(--step-caption); color: var(--muted); }
+.link-quiet {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--pine);
+  font: inherit;
+  font-size: var(--step-small);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+@media (min-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+}
+
+/* Подвал */
+footer { padding: 30px 0 40px; color: var(--muted); font-size: var(--step-caption); }
+footer p { margin: 0 0 8px; max-width: 74ch; }
+footer p:last-child { margin-bottom: 0; }
+footer b { color: var(--ink-soft); font-weight: 600; }
+
+:target { scroll-margin-top: 76px; }
+</style>
+</head>
+<body>
+
+<div class="demo-bar">
+  <div class="wrap">
+    <b>Демо</b>
+    <span>макет, не сайт компании. Данные с centr-gbo.ru</span>
+  </div>
+</div>
+
+<header class="mast">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Центр ГБО, к началу страницы">
+      <span class="brand-mark">Центр ГБО</span>
+      <span class="brand-sub">установка газового оборудования</span>
+    </a>
+    <a class="mast-call" href="tel:+79600682113">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.6l1.9 4.7-2.3 1.4a12.3 12.3 0 0 0 5.7 5.7l1.4-2.3L20 15.4V19a2 2 0 0 1-2.1 2A15.4 15.4 0 0 1 3 6.1 2 2 0 0 1 5 4z"/></svg>
+      <span>+7 (960) 068-21-13</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Казань, Ершова 27г</p>
+      <h1>Установка ГБО с гарантией до трёх лет</h1>
+      <p class="lead">Ставим ГБО на любой автомобиль, работаем по договору. Поможем с документами для ГИБДД.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#request">Записаться на установку</a>
+        <a class="tel-quiet" href="tel:+79600682113"><span>или позвонить: +7 (960) 068-21-13</span></a>
+      </div>
+      <dl class="facts">
+        <div>
+          <dt>Цена</dt>
+          <dd>от 33 000 ₽</dd>
+        </div>
+        <div>
+          <dt>Срок</dt>
+          <dd>Под ключ за 4 часа</dd>
+        </div>
+        <div>
+          <dt>Гарантия</dt>
+          <dd>До 3 лет по договору</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="sect-head">
+        <div>
+          <h2>Услуги и цены</h2>
+        </div>
+        <p class="caption">Цены с вашего сайта centr-gbo.ru, проверено 20.10.2026. Если что-то изменилось, поправим на этой странице.</p>
+      </div>
+      <ul class="svc-list">
+        <li class="svc">
+          <div class="svc-top"><h3>Установка ГБО</h3><span class="svc-lead" aria-hidden="true"></span><span class="svc-price"><span class="from">от</span> 33 000 ₽</span></div>
+          <p>Под ключ за четыре часа: оборудование, монтаж, настройка. Работаем по договору, гарантия на оборудование и на работы.</p>
+        </li>
+        <li class="svc">
+          <div class="svc-top"><h3>Диагностика ГБО</h3><span class="svc-lead" aria-hidden="true"></span><span class="svc-price"><span class="from">от</span> 600 ₽</span></div>
+          <p>Проверим состояние оборудования и поможем понять, можно ли ездить, нужен ли ремонт или замена.</p>
+        </li>
+        <li class="svc">
+          <div class="svc-top"><h3>Обслуживание ГБО</h3><span class="svc-lead" aria-hidden="true"></span><span class="svc-price"><span class="from">от</span> 1 400 ₽</span></div>
+          <p>Диагностика, корректировка смеси, замена газовых фильтров, опрессовка и проверка на герметичность. Расходники в цене.</p>
+        </li>
+        <li class="svc">
+          <div class="svc-top"><h3>Демонтаж ГБО для ГИБДД</h3><span class="svc-lead" aria-hidden="true"></span><span class="svc-price"><span class="from">от</span> 2 000 ₽</span></div>
+          <p>Снимем систему перед проверкой в инспекции и поставим обратно. Занимает не больше часа.</p>
+        </li>
+        <li class="svc">
+          <div class="svc-top"><h3>Регистрация в ГИБДД</h3><span class="svc-lead" aria-hidden="true"></span><span class="svc-price"><span class="from">от</span> 6 000 ₽</span></div>
+          <p>Поможем получить разрешение на установку и оформить документы для официальной регистрации изменений в конструкции.</p>
+        </li>
+        <li class="svc">
+          <div class="svc-top"><h3>Полный демонтаж ГБО</h3><span class="svc-lead" aria-hidden="true"></span><span class="svc-price"><span class="from">от</span> 4 000 ₽</span></div>
+          <p>Вернём автомобилю изначальный конструктивный вид, снимем газобаллонное оборудование.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="sect-head">
+        <div>
+          <h2>Что вы получаете</h2>
+        </div>
+        <p class="caption">Четыре вещи, о которых договариваемся до начала работы.</p>
+      </div>
+      <ul class="why-grid">
+        <li class="why">
+          <span class="num">01</span>
+          <h3>Гарантия до трёх лет</h3>
+          <p>На оборудование и на работы, всё по договору.</p>
+        </li>
+        <li class="why">
+          <span class="num">02</span>
+          <h3>Установка за четыре часа</h3>
+          <p>Приезжаете утром, уезжаете на газе в тот же день.</p>
+        </li>
+        <li class="why">
+          <span class="num">03</span>
+          <h3>Оформление в ГИБДД</h3>
+          <p>Помогаем получить разрешение и оформить документы на изменение конструкции.</p>
+        </li>
+        <li class="why">
+          <span class="num">04</span>
+          <h3>Мастера с опытом больше шести лет</h3>
+          <p>Работают со всеми марками ГБО, которые продаются в России.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sect-head">
+        <div>
+          <h2>Отзывы</h2>
+        </div>
+        <p class="caption">С вашего сайта centr-gbo.ru. Цитаты сокращены, орфография источника сохранена.</p>
+      </div>
+      <ul class="quotes">
+        <li class="quote">
+          <figure style="margin:0">
+            <blockquote>«Хороший сервис, а главное качественный»</blockquote>
+            <figcaption>Muhammad Ali Raximjonov</figcaption>
+          </figure>
+        </li>
+        <li class="quote">
+          <figure style="margin:0">
+            <blockquote>«Здесь самое человечное отношение к клиенту»</blockquote>
+            <figcaption>Маргарита</figcaption>
+          </figure>
+        </li>
+        <li class="quote">
+          <figure style="margin:0">
+            <blockquote>«Сейчас машинка при торможении не глохнет, заводится с полпинка»</blockquote>
+            <figcaption>Наталья Бакирова</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contacts" id="contacts">
+    <div class="wrap">
+      <div class="sect-head">
+        <div>
+          <h2>Контакты и запись</h2>
+        </div>
+        <p class="caption">Позвоните или оставьте заявку, перезвоним и подберём удобное время.</p>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <dl class="info">
+            <div><dt>Адрес</dt><dd>Казань, ул. Николая Ершова, 27г</dd></div>
+            <div><dt>Телефон</dt><dd><a href="tel:+79600682113">+7 (960) 068-21-13</a></dd></div>
+            <div><dt>Почта</dt><dd><a href="mailto:al.zagidullin2015@yandex.ru">al.zagidullin2015@yandex.ru</a></dd></div>
+            <div><dt>Часы работы</dt><dd>Пн-Пт 9:00-19:00, Сб 9:00-13:00, Вс выходной</dd></div>
+          </dl>
+          <div class="map" role="img" aria-label="Место под карту: Казань, улица Николая Ершова, 27г">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <b>Здесь будет карта</b>
+            <span>Вставим Яндекс Карту или Google Maps с вашим адресом. Место под неё уже готово.</span>
+          </div>
+        </div>
+
+        <div class="card-quiet" id="request">
+          <h3 id="form-head">Записаться на установку</h3>
+          <p class="caption">Достаточно имени и телефона, остальное уточним по звонку.</p>
+          <form class="form" id="request-form" novalidate>
+            <div class="field">
+              <label for="f-name">Как вас зовут</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Например, Анна" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required>
+            </div>
+            <div class="field">
+              <label for="f-comment">Комментарий, если нужно</label>
+              <textarea id="f-comment" name="comment" rows="3" placeholder="Марка авто, что сделать, удобное время"></textarea>
+            </div>
+            <p class="err" id="form-err" role="alert" hidden>Впишите имя и телефон, чтобы мы могли перезвонить.</p>
+            <button class="btn" type="submit">Отправить заявку</button>
+            <p class="hint">Форма демонстрационная: данные никуда не отправляются. В рабочей версии заявка придёт вам в WhatsApp, Telegram или на почту.</p>
+          </form>
+          <div class="ok" id="form-ok" role="status" aria-live="polite" hidden>
+            <b>Спасибо<span id="ok-name"></span>, заявка принята</b>
+            <p>Это демонстрация: данные не отправлялись. В рабочей версии заявка сразу придёт вам, и вы перезвоните по указанному номеру<span id="ok-phone-wrap" hidden>, <span id="ok-phone"></span></span>.</p>
+            <button class="link-quiet" type="button" id="form-again">Отправить ещё одну заявку</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Это демо-макет.</b> Страница собрана для показа: цены, адрес, телефон, часы и отзывы взяты с вашего сайта centr-gbo.ru 20.10.2026, ничего не придумано. Форма заявки демонстрационная.</p>
+    <p>Центр ГБО, Казань, ул. Николая Ершова, 27г, +7 (960) 068-21-13, al.zagidullin2015@yandex.ru</p>
+    <p>© <span id="year">2026</span> Центр ГБО</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('request-form');
+  var ok = document.getElementById('form-ok');
+  var head = document.getElementById('form-head');
+  var again = document.getElementById('form-again');
+  var card = document.getElementById('request');
+  var err = document.getElementById('form-err');
+  var nameField = document.getElementById('f-name');
+  var phoneField = document.getElementById('f-phone');
+
+  function digits(s) { return (s || '').replace(/\D/g, '').length; }
+
+  function mark(el, bad) {
+    if (!el) { return; }
+    if (bad) { el.setAttribute('aria-invalid', 'true'); }
+    else { el.removeAttribute('aria-invalid'); }
+  }
+
+  if (form && ok) {
+    form.addEventListener('input', function (ev) {
+      if (ev.target === nameField && nameField.value.trim()) { mark(nameField, false); }
+      if (ev.target === phoneField && digits(phoneField.value) >= 10) { mark(phoneField, false); }
+      if (err && !err.hidden && nameField.value.trim() && digits(phoneField.value) >= 10) { err.hidden = true; }
+    });
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var name = nameField && nameField.value ? nameField.value.trim() : '';
+      var phone = phoneField && phoneField.value ? phoneField.value.trim() : '';
+      var nameBad = !name;
+      var phoneBad = digits(phone) < 10;
+      mark(nameField, nameBad);
+      mark(phoneField, phoneBad);
+      if (nameBad || phoneBad) {
+        if (err) { err.hidden = false; }
+        var first = nameBad ? nameField : phoneField;
+        if (first && first.focus) { first.focus(); }
+        return;
+      }
+      if (err) { err.hidden = true; }
+      var okName = document.getElementById('ok-name');
+      var okPhone = document.getElementById('ok-phone');
+      var okPhoneWrap = document.getElementById('ok-phone-wrap');
+      if (okName) { okName.textContent = ', ' + name; }
+      if (okPhone && okPhoneWrap) { okPhone.textContent = phone; okPhoneWrap.hidden = false; }
+      form.hidden = true;
+      ok.hidden = false;
+      if (head) { head.textContent = 'Заявка отправлена'; }
+      if (ok.scrollIntoView) { ok.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    });
+  }
+
+  if (again && form && ok) {
+    again.addEventListener('click', function () {
+      form.reset();
+      mark(nameField, false);
+      mark(phoneField, false);
+      if (err) { err.hidden = true; }
+      form.hidden = false;
+      ok.hidden = true;
+      if (head) { head.textContent = 'Записаться на установку'; }
+      if (nameField && nameField.focus) { nameField.focus(); }
+      if (card && card.scrollIntoView) { card.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  }
+
+  var year = document.getElementById('year');
+  if (year) { year.textContent = String(new Date().getFullYear()); }
+})();
+</script>
+
+</body>
+</html>

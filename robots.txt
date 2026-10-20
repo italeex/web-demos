@@ -8,5 +8,7 @@ Disallow: /toylex-ufa/
 Disallow: /melari-samara/
 Disallow: /ulybka-kazan/
 Disallow: /interval-barnaul/
+# Client preview v2 (redesign of an existing site): same rule.
+Disallow: /gbo-v2/
 
 Sitemap: https://italeex.github.io/web-demos/sitemap.xml
