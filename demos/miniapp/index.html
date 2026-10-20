@@ -80,7 +80,12 @@
   <div class="st" id="st"></div>
 </div>
 <script>
-const API = "https://italeex.github.io/web-demos/miniapp/api";  // база agent-board
+// Базовый URL API. Пусто = тот же origin (когда страницу раздаёт agent-board).
+// Другой хост задаётся один раз в localStorage: agentboard_api
+const API = (function () {
+  const saved = localStorage.getItem('agentboard_api');
+  return saved ? saved.replace(/\/$/, '') : '';
+})();
 let PROJECT = null, DATA = {agents:[], feed:[]}, TAB = "agent", SELECTED = null;
 
 const tg = window.Telegram && window.Telegram.WebApp;
@@ -98,7 +103,7 @@ async function api(path, opts) {
 }
 
 async function loadProjects() {
-  const d = await api("/projects");
+  const d = await api("/api/projects");
   const ps = d.projects || [];
   if (!PROJECT && ps.length) PROJECT = ps[0].name;
   document.getElementById('projects').innerHTML = ps.map(p =>
@@ -114,7 +119,7 @@ async function loadProjects() {
 async function load() {
   if (!PROJECT) return;
   try {
-    DATA = await api("/project/" + encodeURIComponent(PROJECT));
+    DATA = await api("/api/project/" + encodeURIComponent(PROJECT));
     render();
   } catch (e) {
     document.getElementById('body').innerHTML = '<div class="empty">нет связи с сервером: ' + esc(e.message) + '</div>';
@@ -190,7 +195,7 @@ document.getElementById('send').addEventListener('click', async () => {
   const st = document.getElementById('st');
   st.textContent = 'отправляю…';
   try {
-    await api("/say", {method:'POST', headers:{'Content-Type':'application/json'},
+    await api("/api/say", {method:'POST', headers:{'Content-Type':'application/json'},
                         body: JSON.stringify({project: PROJECT, text})});
     t.value = ''; st.textContent = 'доставлено, лидер разбужен';
     TAB = 'chat'; syncTabs(); load();
