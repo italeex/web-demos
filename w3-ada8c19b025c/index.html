@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Элегия: салон красоты в Челябинске (демо)</title>
+<meta name="description" content="Макет страницы для Элегия: салон красоты в Челябинске. Демонстрационная страница, не действующий сайт компании.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#faf6f1">
+<style>
+:root{
+  --bg:#faf6f1; --ink:#1d1916; --ink-soft:#5f544c; --line:#e7dbd1;
+  --accent:#9a5b45; --accent-ink:#7b4634; --tint:#f4e7de; --tint-2:#f7efe8;
+  --badge-bg:#fbe3b3; --badge-ink:#5d3c08; --white:#fffdfa;
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype","DejaVu Serif",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --wrap:960px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.6;text-rendering:optimizeLegibility}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+ul,ol{margin:0;padding:0;list-style:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.ico{display:block}
+
+/* демо-плашка */
+.demobar{background:var(--badge-bg);color:var(--badge-ink);font-size:12px;
+  letter-spacing:.02em;padding:9px 20px;display:flex;gap:10px;align-items:center;
+  justify-content:center;flex-wrap:wrap;border-bottom:1px solid #f0cf8f}
+.demobar__tag{font-weight:700;text-transform:uppercase;letter-spacing:.14em;
+  background:#5d3c08;color:#fdf3dd;border-radius:999px;padding:2px 9px;font-size:11px}
+.demobar__text{opacity:.95}
+
+/* шапка */
+.site-head{position:sticky;top:0;z-index:20;background:rgba(250,246,241,.94);
+  backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+.head-row{display:flex;align-items:center;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;min-height:44px}
+.brand__mark{flex:0 0 34px;width:34px;height:34px;border-radius:50%;
+  background:var(--tint);color:var(--accent-ink);display:flex;align-items:center;
+  justify-content:center;font-family:var(--serif);font-size:18px;line-height:1}
+.brand__name{font-family:var(--serif);font-size:19px;letter-spacing:-.01em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.head-nav{display:none;gap:22px;margin-left:auto;font-size:14px;color:var(--ink-soft)}
+.head-nav a{text-decoration:none;border-bottom:1px solid transparent;padding:4px 0}
+.head-nav a:hover{border-color:var(--accent)}
+.head-phone{margin-left:auto;text-decoration:none;font-weight:600;font-size:15px;
+  white-space:nowrap;border-bottom:1px solid transparent;padding:10px 0;min-height:44px;
+  display:inline-flex;align-items:center}
+.head-phone:hover{border-color:var(--accent)}
+
+/* обложка */
+.hero{position:relative;overflow:hidden;padding:38px 0 34px;border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#fbf8f4 0%,#faf6f1 100%)}
+.hero__deco{position:absolute;right:-90px;top:-60px;width:300px;height:300px;
+  color:var(--accent);opacity:.10;pointer-events:none}
+.hero .wrap{position:relative}
+.eyebrow{font-size:11.5px;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--accent-ink);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.45;
+  flex:0 0 auto}
+.hero h1{font-size:clamp(33px,9.2vw,52px);line-height:1.1;margin-bottom:14px}
+.hero__lede{font-size:17px;color:var(--ink-soft);max-width:34em}
+.hero__actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:50px;padding:0 22px;border-radius:999px;text-decoration:none;
+  font-size:15px;font-weight:600;border:1px solid transparent}
+.btn--primary{background:var(--accent-ink);color:var(--white)}
+.btn--primary:hover{background:#653728}
+.btn--ghost{border-color:#d9c7bb;color:var(--ink)}
+.btn--ghost:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
+.hero__note{margin-top:18px;font-size:13px;line-height:1.5;color:var(--ink-soft);
+  max-width:38em;padding-left:12px;border-left:2px solid var(--badge-bg)}
+
+/* секции */
+.section{padding:44px 0;border-bottom:1px solid var(--line)}
+.section--tint{background:var(--tint-2)}
+.section h2{font-size:clamp(23px,6vw,31px);line-height:1.15;margin-bottom:10px}
+.section__intro{color:var(--ink-soft);font-size:15px;max-width:40em;margin-bottom:22px}
+
+/* услуги */
+.services{margin-top:8px}
+.service{display:flex;gap:14px;align-items:center;justify-content:space-between;
+  padding:15px 0;border-top:1px solid var(--line)}
+.service:last-child{border-bottom:1px solid var(--line)}
+.service__body{display:flex;flex-direction:column;gap:3px;min-width:0}
+.service__name{font-size:16.5px;font-weight:600}
+.service__desc{font-size:13.5px;color:var(--ink-soft);line-height:1.45}
+.service__price{flex:0 0 auto;font-size:12px;color:var(--accent-ink);
+  white-space:nowrap;background:var(--tint);border-radius:999px;padding:5px 10px;
+  font-variant-numeric:tabular-nums}
+.notice{margin-top:18px;font-size:13px;line-height:1.5;color:var(--ink-soft);
+  background:var(--tint);border-radius:12px;padding:12px 14px}
+
+/* запись */
+.steps{display:grid;gap:18px;margin-top:20px}
+.step{display:flex;gap:14px}
+.step__n{flex:0 0 auto;font-family:var(--serif);font-size:26px;line-height:1;
+  color:#a06a4b}
+.step__title{font-family:var(--sans);font-size:16px;font-weight:700;margin-bottom:4px}
+.step__text{font-size:14px;color:var(--ink-soft)}
+
+/* что входит */
+.cards{display:grid;gap:10px;margin-top:20px}
+.card{display:flex;gap:12px;align-items:flex-start;background:var(--white);
+  border:1px solid var(--line);border-radius:14px;padding:14px 15px}
+.card__ico{flex:0 0 34px;display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:10px;background:var(--tint);
+  color:var(--accent-ink);margin:0}
+.card__title{font-family:var(--sans);font-size:15px;font-weight:700;margin-bottom:2px}
+.card__text{font-size:13px;color:var(--ink-soft);line-height:1.45}
+
+/* чего нет */
+.truths{display:grid;gap:16px;margin-top:20px}
+.truth{display:flex;gap:12px}
+.truth__ico{flex:0 0 auto;color:var(--accent);margin-top:2px}
+.truth__title{font-family:var(--sans);font-size:15px;font-weight:700;margin-bottom:3px}
+.truth__text{font-size:14px;color:var(--ink-soft)}
+
+/* контакты */
+.bigphone{display:inline-block;font-family:var(--serif);font-size:clamp(26px,7vw,34px);
+  text-decoration:none;margin:6px 0 10px;border-bottom:1px solid var(--line)}
+.bigphone:hover{border-color:var(--accent)}
+.contacts__meta{color:var(--ink-soft);font-size:14px;max-width:36em}
+.contactrows{margin-top:16px;display:grid;gap:2px}
+.contactrow{display:flex;gap:10px;align-items:center;font-size:14px;min-height:44px}
+.contactrow__label{color:var(--ink-soft)}
+.contactrow__link{text-decoration:none;border-bottom:1px solid var(--line);
+  min-height:44px;display:inline-flex;align-items:center}
+
+/* подвал */
+.foot{padding:30px 0 110px;font-size:12.5px;line-height:1.6;color:var(--ink-soft)}
+.foot__brand{font-family:var(--serif);font-size:16px;color:var(--ink);margin-bottom:8px}
+.foot__rule{height:1px;background:var(--line);margin:18px 0}
+
+/* нижняя панель звонка */
+.callbar{display:none}
+
+@media (min-width:720px){
+  .head-nav{display:flex}
+  .hero{padding:56px 0 46px}
+  .hero__lede{font-size:18px}
+  .section{padding:56px 0}
+  .services{display:grid;grid-template-columns:1fr 1fr;column-gap:36px}
+  .service:nth-child(1){border-top:1px solid var(--line)}
+  .steps{grid-template-columns:repeat(3,1fr);gap:26px}
+  .cards{grid-template-columns:repeat(3,1fr);gap:14px}
+  .card{display:block;padding:18px;border-radius:16px}
+  .card__ico{margin-bottom:11px;width:38px;height:38px;border-radius:11px}
+  .card__title{font-size:15.5px;margin-bottom:5px}
+  .card__text{font-size:13.5px;line-height:1.5}
+  .truths{grid-template-columns:repeat(3,1fr);gap:26px}
+  .foot{padding-bottom:40px}
+}
+@media (max-width:719px){
+  .callbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;
+    background:rgba(255,253,250,.97);border-top:1px solid var(--line);
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+  .callbar .btn{width:100%}
+  .callbar__hint{font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);text-align:center;margin-bottom:7px}
+}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="demobar"><span class="demobar__tag">демо</span><span class="demobar__text">макет страницы, а не действующий сайт</span></div>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="#top" aria-label="Элегия">
+      <span class="brand__mark" aria-hidden="true">Э</span>
+      <span class="brand__name">Элегия</span>
+    </a>
+    <nav class="head-nav" aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#how">Запись</a>
+      <a href="#included">Что входит</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="head-phone" href="tel:+73512520694">+7 351 252-06-94</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <svg class="hero__deco" viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+      <circle cx="150" cy="150" r="148"/>
+      <circle cx="150" cy="150" r="118"/>
+      <circle cx="150" cy="150" r="88"/>
+      <circle cx="150" cy="150" r="58"/>
+    </svg>
+    <div class="wrap">
+      <p class="eyebrow">салон красоты · Челябинск</p>
+      <h1>Элегия</h1>
+      <p class="hero__lede">Салон красоты в Челябинске. Запись по телефону, услуги и цены ниже.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="tel:+73512520694">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.5h3l1.2 3.4-1.9 1.4a12 12 0 0 0 5.8 5.8l1.4-1.9 3.4 1.2v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg>
+          Позвонить
+        </a>
+        <a class="btn btn--ghost" href="#services">Смотреть услуги</a>
+      </div>
+      <p class="hero__note">Название, город и телефон взяты из открытых данных компании. Всё остальное на странице это пример: заменим вашими услугами, ценами и текстами.</p>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <p class="eyebrow">услуги</p>
+      <h2>Что будет в списке услуг</h2>
+      <p class="section__intro">Порядок и названия процедур настраиваются под вас: здесь стоит пример для этой категории.</p>
+      <ul class="services">
+        <li class="service">
+          <div class="service__body">
+            <span class="service__name">Парикмахерские услуги</span>
+            <span class="service__desc">Стрижка, укладка, окрашивание.</span>
+          </div>
+          <span class="service__price">цену подтвердим</span>
+        </li>
+        <li class="service">
+          <div class="service__body">
+            <span class="service__name">Маникюр и педикюр</span>
+            <span class="service__desc">Обработка ногтей, покрытие гель-лаком.</span>
+          </div>
+          <span class="service__price">цену подтвердим</span>
+        </li>
+        <li class="service">
+          <div class="service__body">
+            <span class="service__name">Брови и ресницы</span>
+            <span class="service__desc">Коррекция формы, окрашивание, ламинирование.</span>
+          </div>
+          <span class="service__price">цену подтвердим</span>
+        </li>
+        <li class="service">
+          <div class="service__body">
+            <span class="service__name">Косметология</span>
+            <span class="service__desc">Уход за лицом, чистки, пилинги.</span>
+          </div>
+          <span class="service__price">цену подтвердим</span>
+        </li>
+        <li class="service">
+          <div class="service__body">
+            <span class="service__name">Макияж</span>
+            <span class="service__desc">Дневной, вечерний, свадебный.</span>
+          </div>
+          <span class="service__price">цену подтвердим</span>
+        </li>
+        <li class="service">
+          <div class="service__body">
+            <span class="service__name">Эпиляция</span>
+            <span class="service__desc">Воск и шугаринг, зоны по запросу.</span>
+          </div>
+          <span class="service__price">цену подтвердим</span>
+        </li>
+      </ul>
+      <p class="notice">Список ниже это пример для салона красоты: он показывает структуру, а не ваш прайс. Ваши названия процедур, цены и порядок впишем после согласования.</p>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="how">
+    <div class="wrap">
+      <p class="eyebrow">запись</p>
+      <h2>Как записаться</h2>
+      <p class="section__intro">Три шага, которые клиент проходит со страницы: без формы и регистрации.</p>
+      <ol class="steps">
+        <li class="step">
+          <span class="step__n" aria-hidden="true">01</span>
+          <div><h3 class="step__title">Позвонить</h3><p class="step__text">Номер в шапке и внизу экрана: с телефона набор открывается одним касанием.</p></div>
+        </li>
+        <li class="step">
+          <span class="step__n" aria-hidden="true">02</span>
+          <div><h3 class="step__title">Согласовать время</h3><p class="step__text">Мастер скажет свободное окно и сколько продлится визит.</p></div>
+        </li>
+        <li class="step">
+          <span class="step__n" aria-hidden="true">03</span>
+          <div><h3 class="step__title">Прийти в салон</h3><p class="step__text">Адрес и часы работы впишем на страницу, когда согласуем.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="included">
+    <div class="wrap">
+      <p class="eyebrow">что входит</p>
+      <h2>Что уже есть на этой странице</h2>
+      <p class="section__intro">Макет собран целиком: открывается с телефона, без внешних библиотек и чужих картинок.</p>
+      <ul class="cards">
+        <li class="card"><span class="card__ico"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.5h3l1.2 3.4-1.9 1.4a12 12 0 0 0 5.8 5.8l1.4-1.9 3.4 1.2v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg></span><h3 class="card__title">Запись по телефону</h3><p class="card__text">Кнопка звонка в шапке и внизу экрана: с телефона набор открывается одним касанием.</p></li>
+        <li class="card"><span class="card__ico"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h10"/></svg></span><h3 class="card__title">Услуги</h3><p class="card__text">Список процедур с ценами или с пометкой «цену подтвердим».</p></li>
+        <li class="card"><span class="card__ico"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6.1-6.5-10.5A6.5 6.5 0 0 1 18.5 10.5C18.5 14.9 12 21 12 21z"/><circle cx="12" cy="10.3" r="2.4"/></svg></span><h3 class="card__title">Адрес и карта</h3><p class="card__text">Точка на карте и адрес. Впишем ваш, когда согласуем.</p></li>
+        <li class="card"><span class="card__ico"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.2V12l3.4 2.2"/></svg></span><h3 class="card__title">Часы работы</h3><p class="card__text">График по дням, чтобы не звонили в закрытое время.</p></li>
+        <li class="card"><span class="card__ico"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3l1.4-2h7.2l1.4 2h3v10H4z"/><circle cx="12" cy="13" r="3.1"/></svg></span><h3 class="card__title">Фотографии работ</h3><p class="card__text">Ваши фото, а не стоковые: по ним видно, что делаете.</p></li>
+        <li class="card"><span class="card__ico"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6.5C6.9 7.6 5.5 9.6 5.5 12.6c0 2.7 1.4 4.4 3.4 4.4 1.7 0 2.9-1.2 2.9-2.8 0-1.5-1-2.6-2.5-2.6-.3 0-.6 0-.8.1.3-1.4 1.2-2.4 2.6-3.1z"/><path d="M17.5 6.5c-2.6 1.1-4 3.1-4 6.1 0 2.7 1.4 4.4 3.4 4.4 1.7 0 2.9-1.2 2.9-2.8 0-1.5-1-2.6-2.5-2.6-.3 0-.6 0-.8.1.3-1.4 1.2-2.4 2.6-3.1z"/></svg></span><h3 class="card__title">Отзывы</h3><p class="card__text">Только реальные, с площадки и с датой. Придуманных не ставим.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="honest">
+    <div class="wrap">
+      <p class="eyebrow">без выдумок</p>
+      <h2>Чего здесь нет и почему</h2>
+      <p class="section__intro">Эти три вещи мы не печатаем без вашего подтверждения. Так страница не соврёт ни вам, ни вашим клиентам.</p>
+      <ul class="truths">
+        <li class="truth"><span class="truth__ico"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.2v5.4"/><path d="M12 7.6v.1"/></svg></span><div><h3 class="truth__title">Адрес и часы</h3><p class="truth__text">В открытых данных они могли устареть, а печатать неверные мы не будем. Впишем ваши, в этом и есть следующий шаг.</p></div></li>
+        <li class="truth"><span class="truth__ico"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.2v5.4"/><path d="M12 7.6v.1"/></svg></span><div><h3 class="truth__title">Цены</h3><p class="truth__text">Вместо сумм стоит «цену подтвердим»: выдуманный прайс хуже, чем его отсутствие, а ваш прайс впишем дословно.</p></div></li>
+        <li class="truth"><span class="truth__ico"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.2v5.4"/><path d="M12 7.6v.1"/></svg></span><div><h3 class="truth__title">Отзывы</h3><p class="truth__text">Со справочников не переносим: число отзывов там меняется, а чужие отзывы без согласия цитировать нельзя.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="contacts">
+    <div class="wrap">
+      <p class="eyebrow">контакты</p>
+      <h2>Связаться</h2>
+      <a class="bigphone" href="tel:+73512520694">+7 351 252-06-94</a>
+      <p class="contacts__meta">Челябинск. Адрес и часы работы впишем ваши: на макете их нет, чтобы не поставить устаревшие данные.</p>
+      <ul class="contactrows">
+        <li class="contactrow"><span class="contactrow__label">Город</span><span>Челябинск</span></li>
+        <li class="contactrow"><span class="contactrow__label">Звонок</span><a class="contactrow__link" href="tel:+73512520694">+7 351 252-06-94</a></li>
+
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__brand">Элегия · Челябинск</p>
+    <p>Демонстрационный макет, а не сайт компании. Название, город и телефон взяты из открытых данных. Услуги, цены и тексты на странице примерные: их заменим вашими.</p>
+    <div class="foot__rule"></div>
+    <p>Макет собран 21.10.2026. Метка «демо» стоит в заголовке страницы и в верхней плашке. Идентификатор лида: ada8c19b025c.</p>
+  </div>
+</footer>
+
+<div class="callbar">
+  <p class="callbar__hint">запись по телефону</p>
+  <a class="btn btn--primary" href="tel:+73512520694">Позвонить +7 351 252-06-94</a>
+</div>
+</body>
+</html>
