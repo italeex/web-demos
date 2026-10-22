@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>July: салон красоты в Самаре (демо-страница)</title>
+<meta name="description" content="Образец страницы для категории «салон красоты»: July, г. Самара. Не сайт компании.">
+<meta name="robots" content="noindex, nofollow">
+<!-- Сгенерировано make_demo.py для July. Демонстрационный образец. -->
+<style>
+:root {
+  --bg: #f7fafc;
+  --panel: #ffffff;
+  --ink: #0f172a;
+  --muted: #5b6b7f;
+  --line: #e2e8f0;
+  --accent: #db2777;
+  --accent-dark: #be185d;
+  --soft: #fdf2f8;
+  --radius: 16px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+[hidden] { display: none !important; }
+a { color: inherit; }
+.wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+h1 { font-size: clamp(26px, 5.4vw, 42px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-size: clamp(21px, 3.6vw, 28px); line-height: 1.2; margin: 0 0 8px; }
+h3 { margin: 12px 0 6px; font-size: 16.5px; }
+p { margin: 0 0 10px; }
+.accent { color: var(--accent-dark); }
+
+/* Шапка */
+.site {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 62px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; font-size: 16px; min-width: 0; min-height: 44px; }
+.brand-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 759px) {
+  .brand { font-size: 15px; }
+  .brand-name {
+    white-space: normal; display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    line-height: 1.15;
+  }
+}
+.glyph {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 11px;
+  background: var(--soft); color: var(--accent-dark); flex: 0 0 auto;
+}
+.links { display: none; gap: 18px; font-size: 14px; color: var(--muted); }
+.links a { text-decoration: none; }
+.links a:hover { color: var(--accent-dark); }
+.head-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.hphone { display: none; font-weight: 600; text-decoration: none; white-space: nowrap; font-size: 14px; }
+.call-word { display: none; }
+.call-num { display: inline; white-space: nowrap; }
+.call-ico { display: inline-flex; align-items: center; }
+@media (min-width: 760px) {
+  .links { display: flex; }
+  .hphone { display: inline; }
+  .call-word { display: inline; }
+  .call-num { display: none; }
+}
+
+/* Кнопки */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 18px; border-radius: 999px; font-weight: 600; font-size: 15px;
+  text-decoration: none; border: 1px solid transparent; cursor: pointer;
+  font-family: inherit; line-height: 1.2;
+}
+.btn-primary { background: var(--accent-dark); color: #ffffff; }
+.btn-primary:hover { filter: brightness(0.92); }
+.btn-ghost { background: #ffffff; border-color: var(--line); color: var(--ink); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent-dark); }
+/* Кнопка в шапке была 163,9 x 36,8 px: гейт тап-таргета стоял на 36 px,
+   внутренний бриф требует >= 44 (VISUAL_REVIEW.md §5.2). min-height 44 px
+   поднимает её до нормы, не меняя строку шапки (nav min-height 62 px). */
+.btn-sm { padding: 9px 14px; font-size: 14px; min-height: 44px; }
+
+/* Первый экран */
+.hero { padding: 36px 0 28px; background: linear-gradient(180deg, var(--soft), var(--bg)); }
+.pill {
+  display: inline-block; padding: 6px 12px; border-radius: 999px;
+  background: #ffffff; border: 1px solid var(--line); color: #475569;
+  font-size: 12.5px; margin-bottom: 14px;
+}
+.pill-demo {
+  /* Заметность: плотная заливка и тёмный текст, чтобы слово "демо" читалось сразу. */
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #fde68a; border: 1px solid #d97706; color: #451a03;
+  font-weight: 700; font-size: 12.5px; padding: 7px 13px 7px 11px;
+}
+.lead { font-size: 16.5px; color: var(--muted); margin: 0 0 20px; max-width: 660px; }
+.cta { display: grid; gap: 10px; margin-bottom: 20px; }
+@media (min-width: 640px) {
+  .cta { display: flex; flex-wrap: wrap; }
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px;
+  background: #ffffff; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 13.5px; color: var(--muted);
+}
+
+/* Секции */
+section { padding: 30px 0; }
+/* Якоря: sticky-шапка 63 px не должна накрывать заголовок секции при переходе
+   по #contact / #services и т.п. 74 = 63 px шапки + 11 px воздуха. */
+section[id], main[id] { scroll-margin-top: 74px; }
+.sect-head { margin-bottom: 18px; }
+.sub { color: var(--muted); font-size: 15px; margin: 0; max-width: 720px; }
+.notice {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: #fffbeb; border: 1px solid #fde68a; color: #78350f;
+  border-radius: 12px; padding: 12px 14px; font-size: 13.5px; margin: 0 0 16px;
+}
+/* Иконка-«i» не должна сжиматься флексом: раньше 18 px глиф визуально терялся. */
+.notice svg { flex: 0 0 auto; }
+/* Висячие строки («прайс.» в конце на всех трёх страницах, VISUAL_REVIEW.md §3.2):
+   balance перераспределяет строки, текст не меняется. */
+.notice > span { text-wrap: balance; }
+.grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 640px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 960px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.card p { color: var(--muted); font-size: 14.5px; margin: 0; text-wrap: balance; }
+.icon {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: var(--soft); color: var(--accent-dark);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.price {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+  background: #fff7ed; color: #9a3412; font-weight: 800;
+  font-size: 15.5px; padding: 8px 12px; border-radius: 10px; border: 1px solid #fed7aa;
+}
+
+/* Почему мы */
+.why { position: relative; padding-left: 0; }
+.num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--accent-dark); color: #ffffff; font-weight: 700; font-size: 15px;
+}
+
+/* Отзывы (заглушки) */
+.review { border: 1px dashed #cbd5e1; background: #ffffff; border-radius: var(--radius); padding: 18px; }
+.review-text { color: var(--ink); font-size: 15px; margin: 0 0 8px; }
+.review-meta { color: var(--muted); font-size: 13.5px; margin: 0; }
+
+/* Контакты */
+.contact-cols { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 900px) {
+  .contact-cols { grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+}
+.info-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.info-list li { display: flex; gap: 11px; align-items: flex-start; }
+.info-list .icon { width: 36px; height: 36px; border-radius: 10px; flex: 0 0 auto; }
+.info-list b { display: block; font-size: 15px; }
+.info-list span { color: var(--muted); font-size: 14px; }
+/* Ссылка на телефон в контактах должна попадать пальцем: строке текста мало.
+   min-height 44 px держит палец, padding оставляет прежний ритм строк.
+   Цвет акцента: «позвонить» это целевой элемент, обычный тёмный текст на него
+   не указывал (VISUAL_REVIEW.md §3.5). Контраст accent-dark к фону >= 5:1. */
+.info-list a { display: inline-flex; align-items: center; min-height: 44px; padding: 5px 0; color: var(--accent-dark); font-weight: 600; }
+/* Часы работы: строка не переносится ВНУТРИ интервала. Пробел остаётся местом
+   переноса, а токен («08:00-16:00,») неделим, поэтому дефис не рвёт пару. */
+.nb { white-space: nowrap; }
+/* .hours: текст чипа одним флекс-элементом, чтобы gap не вставлял по 7 px
+   между токенами часов. */
+.hours { min-width: 0; }
+.map {
+  position: relative; margin-top: 16px; min-height: 240px; border-radius: var(--radius);
+  border: 1px solid var(--line); overflow: hidden;
+  background:
+    repeating-linear-gradient(0deg, rgba(15, 23, 42, 0.06) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(90deg, rgba(15, 23, 42, 0.06) 0 1px, transparent 1px 36px),
+    linear-gradient(135deg, #eef2f7, #f8fafc);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 20px;
+}
+.map-pin { color: var(--accent-dark); margin-bottom: 8px; }
+.map-inner { max-width: 320px; }
+.map-inner b { display: block; margin-bottom: 4px; }
+/* display:block нужен, чтобы text-wrap: balance вообще применился (на inline
+   он игнорируется, и «готово.» оставалось висеть, VISUAL_REVIEW.md §3.2). */
+.map-inner span { display: block; color: var(--muted); font-size: 13.5px; text-wrap: balance; }
+
+/* Форма */
+.form-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.form { display: grid; gap: 12px; margin-top: 6px; }
+.field { display: grid; gap: 6px; }
+label { font-size: 13.5px; font-weight: 600; color: #334155; }
+input, textarea {
+  /* на телефоне растянутое поле ломает карточку */
+  resize: none;
+  width: 100%; padding: 12px 13px; border: 1px solid var(--line);
+  border-radius: 12px; font: inherit; background: #ffffff; color: var(--ink);
+}
+input:focus, textarea:focus { outline: 2px solid var(--soft); border-color: var(--accent); }
+.hint { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
+.ok {
+  border: 1px solid #bbf7d0; background: #f0fdf4; color: #14532d;
+  border-radius: var(--radius); padding: 18px; margin-top: 6px;
+}
+.ok b { display: block; font-size: 16px; margin-bottom: 6px; }
+.ok p { margin: 0; font-size: 14px; text-wrap: balance; }
+/* Путь «отправить ещё одну»: без него после демо-клика из формы не выйти. */
+.ok .btn { margin-top: 14px; }
+
+/* Подвал */
+footer { border-top: 1px solid var(--line); background: #ffffff; padding: 22px 0 34px; color: #475569; font-size: 14.5px; }
+.foot-note { margin: 0 0 8px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="glyph"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M8.2 7.6 20 19M8.2 16.4 20 5"/></svg></span>
+      <span class="brand-name">July</span>
+    </a>
+    <nav class="links" aria-label="Разделы страницы">
+      <a href="#services">Услуги</a>
+      <a href="#why">Почему мы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <span class="head-actions">
+      <a class="hphone" href="tel:+78462050506">+7 (846) 205-05-06</a>
+      <a class="btn btn-primary btn-sm" href="tel:+78462050506"><span class="call-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><span class="call-word">Позвонить</span><span class="call-num">+7 (846) 205-05-06</span></a>
+    </span>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <span class="pill pill-demo"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.8v5"/><path d="M12 16.3v.1"/></svg><span>Образец для категории «салон красоты». Не ваша компания.</span></span>
+      <h1>July: <span class="accent">салон красоты</span></h1>
+      <p class="lead">Услуги и цены ниже примерные: заменим на ваши. Запись по телефону, адрес и часы в контактах.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#contact">Записаться</a>
+        <a class="btn btn-ghost" href="tel:+78462050506">Позвонить: +7 (846) 205-05-06</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span class="hours">Самара</span></span>
+        <span class="chip"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M8 4v4M16 4v4M4 11h16"/></svg><span class="hours">Запись по телефону</span></span>
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sect-head">
+        <h2>Услуги и цены</h2>
+        <p class="sub">Ниже базовый набор услуг для категории «салон красоты». Ваш список уточним и заменим.</p>
+      </div>
+      <p class="notice"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.2v5.4"/><path d="M12 7.6v.1"/></svg><span>Цены с меткой «2ГИС, дата» взяты из карточки компании. Где цены в карточке нет, написано «цену подтвердим»: впишем ваши перед публикацией.</span></p>
+      <div class="grid grid-3">
+        <article class="card">
+  <span class="icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M8.2 7.6 20 19M8.2 16.4 20 5"/></svg></span>
+  <h3>Стрижка</h3>
+  <p>Женская, мужская и детская, укладка по желанию.</p>
+  <span class="price">цену подтвердим</span>
+</article>
+        <article class="card">
+  <span class="icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></span>
+  <h3>Окрашивание</h3>
+  <p>Однотонное, тонирование, уход после процедуры.</p>
+  <span class="price">цену подтвердим</span>
+</article>
+        <article class="card">
+  <span class="icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>
+  <h3>Маникюр</h3>
+  <p>Аппаратный или комбинированный, покрытие гель-лак.</p>
+  <span class="price">цену подтвердим</span>
+</article>
+        <article class="card">
+  <span class="icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.3A4 4 0 0 1 12 8a4 4 0 0 1 7 2.7c0 4.9-7 9.3-7 9.3z"/></svg></span>
+  <h3>Педикюр</h3>
+  <p>Аппаратный, с уходом за стопами.</p>
+  <span class="price">цену подтвердим</span>
+</article>
+        <article class="card">
+  <span class="icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M4 20c0-3 2.2-5 5-5s5 2 5 5"/><path d="M16 8a3 3 0 1 1 0 6"/><path d="M17 20c0-2.4-.8-4.2-2-5.2"/></svg></span>
+  <h3>Ресницы и брови</h3>
+  <p>Наращивание, коррекция, окрашивание и ламинирование.</p>
+  <span class="price">цену подтвердим</span>
+</article>
+        <article class="card">
+  <span class="icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></span>
+  <h3>Уход за лицом</h3>
+  <p>Чистка, массаж, маски по типу кожи.</p>
+  <span class="price">цену подтвердим</span>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="sect-head">
+        <h2>Почему выбирают нас</h2>
+        <p class="sub">Пока в этом блоке образец для категории: заменим на ваши формулировки.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card why">
+  <span class="num">1</span>
+  <h3>Подбор под вас</h3>
+  <p>Мастер предлагает варианты и честно говорит о результате.</p>
+</article>
+        <article class="card why">
+  <span class="num">2</span>
+  <h3>Стерильные инструменты</h3>
+  <p>Обработка по нормам, упаковка вскрывается при вас.</p>
+</article>
+        <article class="card why">
+  <span class="num">3</span>
+  <h3>Работа по записи</h3>
+  <p>Приём по времени, без ожидания в очереди.</p>
+</article>
+        <article class="card why">
+  <span class="num">4</span>
+  <h3>Проверенные материалы</h3>
+  <p>Показываем упаковку и состав средств перед процедурой.</p>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sect-head">
+        <h2>Отзывы</h2>
+        <p class="sub">Здесь появятся ваши отзывы. Пока это образец блока: заполним вашими отзывами и скриншотами.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="review">
+  <p class="review-text">Здесь будет ваш отзыв</p>
+  <p class="review-meta">Текст отзыва, имя и фото клиента подставим с его согласия.</p>
+</article>
+        <article class="review">
+  <p class="review-text">Отзывы из карт и мессенджеров</p>
+  <p class="review-meta">Перенесём сюда настоящие отзывы из 2ГИС, Яндекс Карт, WhatsApp или Telegram.</p>
+</article>
+        <article class="review">
+  <p class="review-text">Скриншот или видео</p>
+  <p class="review-meta">В это место встанет скриншот переписки или короткое видео с клиентом.</p>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sect-head">
+        <h2>Контакты и запись</h2>
+        <p class="sub">Позвоните или оставьте заявку. Перезвоним и подберём удобное время.</p>
+      </div>
+      <div class="contact-cols">
+        <div>
+          <ul class="info-list">
+            <li><span class="icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span><span><b>Адрес</b><span>Самара, Самара, улица Победы, 141</span></span></li>
+            <li><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><span><b>Телефон</b><span><a href="tel:+78462050506">+7 (846) 205-05-06</a></span></span></li>
+            
+          </ul>
+          <div class="map" role="img" aria-label="Место под карту: Самара, Самара, улица Победы, 141">
+            <div class="map-inner">
+              <div class="map-pin"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+              <b>Здесь будет карта</b>
+              <span>Вставим Яндекс Карту или Google Maps с вашим адресом при публикации. Место под карту уже готово.</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-card">
+          <h3 style="margin-top:0" id="form-head">Оставить заявку</h3>
+          <form class="form" id="request-form" novalidate>
+            <div class="field">
+              <label for="f-name">Как вас зовут</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Например, Анна" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required>
+            </div>
+            <div class="field">
+              <label for="f-comment">Комментарий (необязательно)</label>
+              <textarea id="f-comment" name="comment" rows="3" placeholder="Что нужно сделать и какое время удобно"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Записаться</button>
+            <p class="hint">Форма демонстрационная: данные никуда не отправляются. В рабочей версии заявка приходит вам в WhatsApp, Telegram или на почту.</p>
+          </form>
+          <div class="ok" id="form-ok" role="status" aria-live="polite" hidden>
+            <b>Спасибо<span id="ok-name"></span>, заявка принята!</b>
+            <p>Это демонстрация: данные не отправлялись. В рабочей версии заявка сразу придёт вам, и мы перезвоним вам по указанному номеру<span id="ok-phone"></span>.</p>
+            <button class="btn btn-ghost" type="button" id="form-again">Отправить ещё одну заявку</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-note">Это образец страницы для категории, а не сайт компании. Название, адрес и телефон взяты из открытых карточек компании на 22.10.2026; часы печатаем только если их подтверждает карточка. Цена с меткой «2ГИС, дата» взята из карточки, а там, где цены нет, написано «цену подтвердим».</p>
+    <p class="foot-note">July, Самара, Самара, улица Победы, 141, телефон +7 (846) 205-05-06.</p>
+    <p class="foot-note">&copy; <span id="year">2026</span> July. Цены уточняйте при записи.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('request-form');
+  var ok = document.getElementById('form-ok');
+  var head = document.getElementById('form-head');
+  var again = document.getElementById('form-again');
+  if (!form || !ok) return;
+  // Заголовок «Оставить заявку» над зелёной плашкой обещал форму, которой уже
+  // нет (VISUAL_REVIEW.md §3.6.1): на время успеха он меняется и возвращается.
+  var headIdle = head ? head.textContent : '';
+
+  function scrollTo(el) {
+    if (el && el.scrollIntoView) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var nameField = document.getElementById('f-name');
+    var phoneField = document.getElementById('f-phone');
+    var okName = document.getElementById('ok-name');
+    var okPhone = document.getElementById('ok-phone');
+    var val = nameField && nameField.value ? nameField.value.trim() : '';
+    var tel = phoneField && phoneField.value ? phoneField.value.trim() : '';
+    if (okName) {
+      okName.textContent = val ? (', ' + val) : '';
+    }
+    // Номер в подтверждении это тот, который ввели, а не номер компании.
+    if (okPhone) {
+      okPhone.textContent = tel ? (' (' + tel + ')') : '';
+    }
+    if (head) {
+      head.textContent = 'Заявка отправлена';
+    }
+    form.hidden = true;
+    ok.hidden = false;
+    scrollTo(ok);
+  });
+
+  if (again) {
+    again.addEventListener('click', function () {
+      ok.hidden = true;
+      form.hidden = false;
+      if (head) {
+        head.textContent = headIdle;
+      }
+      form.reset();
+      var okName = document.getElementById('ok-name');
+      var okPhone = document.getElementById('ok-phone');
+      if (okName) { okName.textContent = ''; }
+      if (okPhone) { okPhone.textContent = ''; }
+      var first = document.getElementById('f-name');
+      if (first && first.focus) { first.focus(); }
+      scrollTo(form);
+    });
+  }
+
+  var year = document.getElementById('year');
+  if (year) {
+    year.textContent = String(new Date().getFullYear());
+  }
+})();
+</script>
+
+</body>
+</html>
