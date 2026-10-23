@@ -1,0 +1,327 @@
+{
+  "innerWidth": 390,
+  "scrollWidth": 390,
+  "docHeight": 5242,
+  "overflowX": 0,
+  "spill": [],
+  "h1": {
+    "rect": {
+      "x": 16,
+      "y": 167.8,
+      "w": 358,
+      "h": 89.7
+    },
+    "fontSize": "26px",
+    "text": "Норд Стар Детейлинг: детейлинг, оклейка и тонирование автостёкол",
+    "lines": [
+      {
+        "words": "Норд Стар Детейлинг:",
+        "count": 3,
+        "w": 281.3
+      },
+      {
+        "words": "детейлинг, оклейка и",
+        "count": 3,
+        "w": 266.3
+      },
+      {
+        "words": "тонирование автостёкол",
+        "count": 2,
+        "w": 313.6
+      }
+    ],
+    "orphan": "тонирование автостёкол"
+  },
+  "brand": {
+    "rect": {
+      "x": 62,
+      "y": 13.8,
+      "w": 136.1,
+      "h": 34.5
+    },
+    "fontSize": "15px",
+    "scrollH": 35,
+    "clientH": 35,
+    "clamped": false,
+    "lines": 2,
+    "text": "Норд Стар Детейлинг"
+  },
+  "nav": {
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 62
+    }
+  },
+  "headerButton": {
+    "rect": {
+      "x": 210.1,
+      "y": 9,
+      "w": 163.9,
+      "h": 44
+    },
+    "text": "Позвонить+7 995 633-99-93"
+  },
+  "chips": [
+    {
+      "text": "Ярославль",
+      "w": 116.7,
+      "h": 36.9,
+      "lines": 2
+    },
+    {
+      "text": "Запись по телефону",
+      "w": 175.9,
+      "h": 36.9,
+      "lines": 2
+    },
+    {
+      "text": "ежедневно 09:00-20:00",
+      "w": 192.4,
+      "h": 36.9,
+      "lines": 2
+    }
+  ],
+  "prices": [
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 1072.3,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 1317.3,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 1562.3,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 1784.8,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 2007.3,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 2229.8,
+        "w": 160.4,
+        "h": 42
+      }
+    }
+  ],
+  "badge": {
+    "text": "Образец для категории «детейлинг». Не ваша компания.",
+    "color": "rgb(69, 26, 3)",
+    "bg": "rgb(253, 230, 138)",
+    "border": "rgb(217, 119, 6)",
+    "fontSize": "12.5px",
+    "fontWeight": "700",
+    "rect": {
+      "x": 16,
+      "y": 99,
+      "w": 358,
+      "h": 54.8
+    }
+  },
+  "form": [
+    {
+      "tag": "input",
+      "id": "f-name",
+      "rect": {
+        "x": 37,
+        "y": 4469.5,
+        "w": 316,
+        "h": 50.8
+      },
+      "fontSize": "16px",
+      "padding": "12px 13px",
+      "boxSizing": "border-box"
+    },
+    {
+      "tag": "input",
+      "id": "f-phone",
+      "rect": {
+        "x": 37,
+        "y": 4559.3,
+        "w": 316,
+        "h": 50.8
+      },
+      "fontSize": "16px",
+      "padding": "12px 13px",
+      "boxSizing": "border-box"
+    },
+    {
+      "tag": "textarea",
+      "id": "f-comment",
+      "rect": {
+        "x": 37,
+        "y": 4649,
+        "w": 316,
+        "h": 100.4
+      },
+      "fontSize": "16px",
+      "padding": "12px 13px",
+      "boxSizing": "border-box"
+    },
+    {
+      "tag": "button",
+      "id": "",
+      "rect": {
+        "x": 37,
+        "y": 4761.4,
+        "w": 316,
+        "h": 44
+      },
+      "fontSize": "15px",
+      "padding": "12px 18px",
+      "boxSizing": "border-box"
+    }
+  ],
+  "formCard": {
+    "x": 16,
+    "y": 4390,
+    "w": 358,
+    "h": 516.4
+  },
+  "textNodes": [
+    {
+      "tag": "span",
+      "cls": "",
+      "fontSize": "12.5px",
+      "color": "rgb(69, 26, 3)",
+      "text": "Образец для категории «детейлинг». Не ва"
+    },
+    {
+      "tag": "p",
+      "cls": "hint",
+      "fontSize": "12.5px",
+      "color": "rgb(91, 107, 127)",
+      "text": "Форма демонстрационная: данные никуда не"
+    }
+  ],
+  "footer": {
+    "rect": {
+      "x": 0,
+      "y": 4959.5,
+      "w": 390,
+      "h": 240.7
+    },
+    "fontSize": "14.5px",
+    "color": "rgb(71, 85, 105)",
+    "bg": "rgb(255, 255, 255)"
+  },
+  "targets": [],
+  "telLinks": [
+    "tel:+79956339993",
+    "tel:+79956339993",
+    "tel:+79956339993",
+    "tel:+79956339993",
+    "tel:+79051388669"
+  ],
+  "sections": [
+    {
+      "tag": "header",
+      "id": "",
+      "top": 0,
+      "h": 63
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "top": 63,
+      "h": 608
+    },
+    {
+      "tag": "section",
+      "id": "services",
+      "top": 671,
+      "h": 1650
+    },
+    {
+      "tag": "section",
+      "id": "why",
+      "top": 2321,
+      "h": 865
+    },
+    {
+      "tag": "section",
+      "id": "reviews",
+      "top": 3186,
+      "h": 542
+    },
+    {
+      "tag": "section",
+      "id": "contact",
+      "top": 3728,
+      "h": 1209
+    },
+    {
+      "tag": "footer",
+      "id": "",
+      "top": 4936,
+      "h": 306
+    }
+  ],
+  "url": "file:///mnt/hermes_data/work/agora-demo-sites/out/w3-c681e41111a6/index.html",
+  "slug": "w3-c681e41111a6",
+  "status": 200,
+  "requests": [
+    "file:///mnt/hermes_data/work/agora-demo-sites/out/w3-c681e41111a6/index.html"
+  ],
+  "external_requests": [],
+  "console": []
+}

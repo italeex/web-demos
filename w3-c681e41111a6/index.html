@@ -146,6 +146,9 @@ section[id], main[id] { scroll-margin-top: 74px; }
 @media (min-width: 960px) {
   .grid-why { grid-template-columns: repeat(2, 1fr); }
 }
+/* Плашка цены в карточке услуги стояла по потоку текста: в карточке с коротким описанием она оказывалась выше соседних на 45 px. Карточка стала колонкой, плашка прижата к низу. */
+.grid .card { display: flex; flex-direction: column; }
+.grid .card .price { margin-top: auto; align-self: flex-start; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
 .card p { color: var(--muted); font-size: 14.5px; margin: 0; text-wrap: balance; }
 .icon {

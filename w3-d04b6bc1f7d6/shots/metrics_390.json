@@ -1,0 +1,220 @@
+{
+  "innerWidth": 390,
+  "layoutViewportWidth": 390,
+  "innerWidthInflated": false,
+  "scrollWidth": 390,
+  "docHeight": 5241,
+  "overflowX": 0,
+  "overflowX_vs_innerWidth": 0,
+  "bodyScrollWidth": 390,
+  "spill": [],
+  "scrollers": [],
+  "chips": [
+    {
+      "text": "Пермь",
+      "rect": {
+        "x": 16,
+        "y": 509.7,
+        "w": 89,
+        "h": 36.9
+      },
+      "lines": 1,
+      "clipped": false,
+      "scrollW": 87,
+      "clientW": 87,
+      "h_to_line_height": 1,
+      "contentH": 21,
+      "lineHeight": 20.93,
+      "padY": 14,
+      "fs": "13.5px"
+    },
+    {
+      "text": "Запись по телефону",
+      "rect": {
+        "x": 113,
+        "y": 509.7,
+        "w": 175.9,
+        "h": 36.9
+      },
+      "lines": 1,
+      "clipped": false,
+      "scrollW": 174,
+      "clientW": 174,
+      "h_to_line_height": 1,
+      "contentH": 21,
+      "lineHeight": 20.93,
+      "padY": 14,
+      "fs": "13.5px"
+    },
+    {
+      "text": "пн-пт 09:00-19:00",
+      "rect": {
+        "x": 16,
+        "y": 554.6,
+        "w": 156.6,
+        "h": 36.9
+      },
+      "lines": 1,
+      "clipped": false,
+      "scrollW": 155,
+      "clientW": 155,
+      "h_to_line_height": 1,
+      "contentH": 21,
+      "lineHeight": 20.93,
+      "padY": 14,
+      "fs": "13.5px"
+    }
+  ],
+  "why": {
+    "rect": {
+      "x": 0,
+      "y": 2296.8,
+      "w": 390,
+      "h": 888.2
+    },
+    "heading": "Почему выбирают нас",
+    "cards": [
+      {
+        "text": "Кузовной ремонт",
+        "rect": {
+          "x": 16,
+          "y": 2471,
+          "w": 358,
+          "h": 160.5
+        },
+        "clipped": false,
+        "scrollH": 159,
+        "clientH": 159
+      },
+      {
+        "text": "Развал-схождение",
+        "rect": {
+          "x": 16,
+          "y": 2645.5,
+          "w": 358,
+          "h": 160.5
+        },
+        "clipped": false,
+        "scrollH": 159,
+        "clientH": 159
+      },
+      {
+        "text": "Стекло и оптика",
+        "rect": {
+          "x": 16,
+          "y": 2820,
+          "w": 358,
+          "h": 138
+        },
+        "clipped": false,
+        "scrollH": 136,
+        "clientH": 136
+      },
+      {
+        "text": "Здесь будет ваш аргумент",
+        "rect": {
+          "x": 16,
+          "y": 2972,
+          "w": 358,
+          "h": 183
+        },
+        "clipped": false,
+        "scrollH": 181,
+        "clientH": 181
+      }
+    ]
+  },
+  "hoursRow": "Часы работыпн-пт 09:00-19:00, сб-вс выходной",
+  "hoursPlaceholderOnPage": false,
+  "hoursRowNormalized": "Часыработыпн-пт09:00-19:00,сб-всвыходной",
+  "h1": {
+    "text": "Bah-master: кузовной ремонт и покраска автомобилей",
+    "rect": {
+      "x": 16,
+      "y": 167.8,
+      "w": 358,
+      "h": 89.7
+    },
+    "fontSize": "26px",
+    "lines": 3
+  },
+  "telLinks": [
+    "tel:+79068895390",
+    "tel:+79068895390",
+    "tel:+79068895390",
+    "tel:+79068895390",
+    "tel:+79024718864"
+  ],
+  "telLinkDisplayText": [
+    "+7 906 889-53-90",
+    "Позвонить+7 906 889-53-90",
+    "Позвонить: +7 906 889-53-90",
+    "+7 906 889-53-90",
+    "+7 902 471-88-64"
+  ],
+  "domExternalRefs": [],
+  "fontFamilies": [
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+  ],
+  "images": 0,
+  "svgCount": 18,
+  "demoBadge": "Образец для категории «автосервис». Не ваша компания.",
+  "slug": "w3-d04b6bc1f7d6",
+  "url": "file:///mnt/hermes_data/work/agora-demo-sites/out/w3-d04b6bc1f7d6/index.html",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "device_scale_factor": 2,
+  "status": 200,
+  "exit_status_ok": true,
+  "external_requests": [],
+  "request_count": 1,
+  "requests": [
+    "file:///mnt/hermes_data/work/agora-demo-sites/out/w3-d04b6bc1f7d6/index.html"
+  ],
+  "failed_requests": [],
+  "console": [],
+  "html_sha256": "e1c4f24f0308d3324a4ad64e02f15b74598e69144122b66a7fd0aa7d3fb30c6b",
+  "html_bytes": 30656,
+  "html_mtime": "2026-10-21T23:28:33",
+  "measured_at": "2026-10-21T23:28:51",
+  "screenshots": [
+    "full.png",
+    "viewport.png",
+    "why.png"
+  ],
+  "expected": {
+    "hours": "пн-пт 09:00-19:00, сб-вс выходной",
+    "hours_short": "пн-пт 09:00-19:00"
+  },
+  "checks": {
+    "status_200": true,
+    "layout_viewport_390": true,
+    "innerWidth_not_inflated": true,
+    "no_horizontal_overflow": true,
+    "no_external_requests": true,
+    "no_console_errors": true,
+    "no_failed_requests": true,
+    "no_spill": true,
+    "no_horizontal_scroller": true,
+    "chips_single_line": true,
+    "chips_not_clipped": true,
+    "why_cards_not_clipped": true,
+    "hours_row_matches_card": true,
+    "no_hours_placeholder": true,
+    "hours_chip_matches_card": true
+  },
+  "ok": true
+}

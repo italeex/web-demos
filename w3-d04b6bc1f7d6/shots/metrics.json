@@ -1,0 +1,327 @@
+{
+  "innerWidth": 390,
+  "scrollWidth": 390,
+  "docHeight": 5241,
+  "overflowX": 0,
+  "spill": [],
+  "h1": {
+    "rect": {
+      "x": 16,
+      "y": 167.8,
+      "w": 358,
+      "h": 89.7
+    },
+    "fontSize": "26px",
+    "text": "Bah-master: кузовной ремонт и покраска автомобилей",
+    "lines": [
+      {
+        "words": "Bah-master:",
+        "count": 1,
+        "w": 148.9
+      },
+      {
+        "words": "кузовной ремонт",
+        "count": 2,
+        "w": 215.4
+      },
+      {
+        "words": "и покраска автомобилей",
+        "count": 3,
+        "w": 313
+      }
+    ],
+    "orphan": null
+  },
+  "brand": {
+    "rect": {
+      "x": 62,
+      "y": 22.4,
+      "w": 82.5,
+      "h": 17.3
+    },
+    "fontSize": "15px",
+    "scrollH": 17,
+    "clientH": 17,
+    "clamped": false,
+    "lines": 1,
+    "text": "Bah-master"
+  },
+  "nav": {
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 62
+    }
+  },
+  "headerButton": {
+    "rect": {
+      "x": 210.1,
+      "y": 9,
+      "w": 163.9,
+      "h": 44
+    },
+    "text": "Позвонить+7 906 889-53-90"
+  },
+  "chips": [
+    {
+      "text": "Пермь",
+      "w": 89,
+      "h": 36.9,
+      "lines": 2
+    },
+    {
+      "text": "Запись по телефону",
+      "w": 175.9,
+      "h": 36.9,
+      "lines": 2
+    },
+    {
+      "text": "пн-пт 09:00-19:00",
+      "w": 156.6,
+      "h": 36.9,
+      "lines": 2
+    }
+  ],
+  "prices": [
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 1055.6,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 1267.7,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 1502.2,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 1736.7,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 1971.2,
+        "w": 160.4,
+        "h": 42
+      }
+    },
+    {
+      "text": "цену подтвердим",
+      "color": "rgb(154, 52, 18)",
+      "bg": "rgb(255, 247, 237)",
+      "fontSize": "15.5px",
+      "fontWeight": "800",
+      "rect": {
+        "x": 35,
+        "y": 2205.8,
+        "w": 160.4,
+        "h": 42
+      }
+    }
+  ],
+  "badge": {
+    "text": "Образец для категории «автосервис». Не ваша компания.",
+    "color": "rgb(69, 26, 3)",
+    "bg": "rgb(253, 230, 138)",
+    "border": "rgb(217, 119, 6)",
+    "fontSize": "12.5px",
+    "fontWeight": "700",
+    "rect": {
+      "x": 16,
+      "y": 99,
+      "w": 358,
+      "h": 54.8
+    }
+  },
+  "form": [
+    {
+      "tag": "input",
+      "id": "f-name",
+      "rect": {
+        "x": 37,
+        "y": 4468.7,
+        "w": 316,
+        "h": 50.8
+      },
+      "fontSize": "16px",
+      "padding": "12px 13px",
+      "boxSizing": "border-box"
+    },
+    {
+      "tag": "input",
+      "id": "f-phone",
+      "rect": {
+        "x": 37,
+        "y": 4558.4,
+        "w": 316,
+        "h": 50.8
+      },
+      "fontSize": "16px",
+      "padding": "12px 13px",
+      "boxSizing": "border-box"
+    },
+    {
+      "tag": "textarea",
+      "id": "f-comment",
+      "rect": {
+        "x": 37,
+        "y": 4648.2,
+        "w": 316,
+        "h": 100.4
+      },
+      "fontSize": "16px",
+      "padding": "12px 13px",
+      "boxSizing": "border-box"
+    },
+    {
+      "tag": "button",
+      "id": "",
+      "rect": {
+        "x": 37,
+        "y": 4760.5,
+        "w": 316,
+        "h": 44
+      },
+      "fontSize": "15px",
+      "padding": "12px 18px",
+      "boxSizing": "border-box"
+    }
+  ],
+  "formCard": {
+    "x": 16,
+    "y": 4389.2,
+    "w": 358,
+    "h": 516.4
+  },
+  "textNodes": [
+    {
+      "tag": "span",
+      "cls": "",
+      "fontSize": "12.5px",
+      "color": "rgb(69, 26, 3)",
+      "text": "Образец для категории «автосервис». Не в"
+    },
+    {
+      "tag": "p",
+      "cls": "hint",
+      "fontSize": "12.5px",
+      "color": "rgb(91, 107, 127)",
+      "text": "Форма демонстрационная: данные никуда не"
+    }
+  ],
+  "footer": {
+    "rect": {
+      "x": 0,
+      "y": 4958.7,
+      "w": 390,
+      "h": 240.7
+    },
+    "fontSize": "14.5px",
+    "color": "rgb(71, 85, 105)",
+    "bg": "rgb(255, 255, 255)"
+  },
+  "targets": [],
+  "telLinks": [
+    "tel:+79068895390",
+    "tel:+79068895390",
+    "tel:+79068895390",
+    "tel:+79068895390",
+    "tel:+79024718864"
+  ],
+  "sections": [
+    {
+      "tag": "header",
+      "id": "",
+      "top": 0,
+      "h": 63
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "top": 63,
+      "h": 557
+    },
+    {
+      "tag": "section",
+      "id": "services",
+      "top": 620,
+      "h": 1677
+    },
+    {
+      "tag": "section",
+      "id": "why",
+      "top": 2297,
+      "h": 888
+    },
+    {
+      "tag": "section",
+      "id": "reviews",
+      "top": 3185,
+      "h": 542
+    },
+    {
+      "tag": "section",
+      "id": "contact",
+      "top": 3727,
+      "h": 1209
+    },
+    {
+      "tag": "footer",
+      "id": "",
+      "top": 4936,
+      "h": 306
+    }
+  ],
+  "url": "file:///mnt/hermes_data/work/agora-demo-sites/out/w3-d04b6bc1f7d6/index.html",
+  "slug": "w3-d04b6bc1f7d6",
+  "status": 200,
+  "requests": [
+    "file:///mnt/hermes_data/work/agora-demo-sites/out/w3-d04b6bc1f7d6/index.html"
+  ],
+  "external_requests": [],
+  "console": []
+}
